@@ -1,14 +1,6 @@
 # shiny-fiesta
 JavaScript proyect
 
-For the first challenge I make a temperature conversor
+The main idea fot this projet is develop a currency converter.
 
-This aplication transform Celsius to Fahrenheit and vice versa, as many times as you want.
-
-The conversor formula is.
-
-For Celsius to Fahrenheit: ºF = (ºC x 1.8) + 32
-
-and
-
-For Fahrenheit to Celsius: ºC = (ºF - 32) / 1.8
+for now I hardcode the currency value but, in the future the value will be obtained by API
