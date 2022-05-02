@@ -1,32 +1,11 @@
 let question = true;
 let money = 0;
 
-class Currency {
-	constructor(name, value) {
-		this.name = name;
-		this.value = value;
-	}
-}
-
-const dollar = new Currency(dollar, 205.5);
-const euro = new Currency(euro, 122.89);
-const real = new Currency(real, 4.02);
-
-const currencys = [];
-
-currencys.push(dollar);
-currencys.push(euro);
-currencys.push(real);
-
-function getDollar(currency) {
-	return currency * dollar.value;
-}
-function getEuro(currency) {
-	return currency * euro.value;
-}
-function getReal(currency) {
-	return currency * real.value;
-}
+const currencys = [
+	{ name: 'dollar', value: 205.5 },
+	{ name: 'euro', value: 122.89 },
+	{ name: 'real', value: 4.02 },
+];
 
 do {
 	let option = parseInt(
@@ -35,15 +14,24 @@ do {
 	switch (option) {
 		case 1:
 			money = parseInt(prompt('how many dollars do you need?'));
-			alert('For ' + money + ' dollars you need ' + getDollar(money) + ' pesos');
+			const convertion = currencys.find((value) => value.name === 'dollar');
+			alert(
+				'For ' + money + ' dollar you need ' + convertion.value * money + ' pesos'
+			);
 			break;
 		case 2:
 			money = parseInt(prompt('how many euros do you need?'));
-			alert('For ' + money + ' euros you need ' + getEuro(money) + ' pesos');
+			const convertion1 = currencys.find((value) => value.name === 'euro');
+			alert(
+				'For ' + money + ' euros you need ' + convertion1.value * money + ' pesos'
+			);
 			break;
 		case 3:
 			money = parseInt(prompt('how many reals do you need?'));
-			alert('For ' + money + ' reals you need ' + getReal(money) + ' pesos');
+			const convertion2 = currencys.find((value) => value.name === 'real');
+			alert(
+				'For ' + money + ' reals you need ' + convertion2.value * money + ' pesos'
+			);
 		default:
 			alert(option + ' no es una opcion valida');
 			break;
