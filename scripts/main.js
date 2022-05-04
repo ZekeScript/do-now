@@ -2,7 +2,7 @@ let question = true;
 let money;
 var convertion;
 
-const CURRENCYS = [ //this array contains all currency objects
+const currencys = [ //this array contains all currency objects
 	{ name: 'dollar', value: 205.5 }, //currency object
 	{ name: 'euro', value: 122.89 },
 	{ name: 'real', value: 4.02 },
@@ -19,7 +19,7 @@ do {
 	switch (option) {
 		case 1:
 			money = parseInt(prompt('how many dollars do you need?'));
-			convertion = CURRENCYS.find((value) => value.name === 'dollar'); //with .find the necessary currency is obtained
+			convertion = currencys.find((value) => value.name === 'dollar'); //with .find the necessary currency is obtained
 			alert(
 				'For ' +
 					money +
@@ -30,7 +30,7 @@ do {
 			break;
 		case 2:
 			money = parseInt(prompt('how many euros do you need?'));
-			convertion = CURRENCYS.find((value) => value.name === 'euro');
+			convertion = currencys.find((value) => value.name === 'euro');
 			alert(
 				'For ' +
 					money +
@@ -41,7 +41,7 @@ do {
 			break;
 		case 3:
 			money = parseInt(prompt('how many reals do you need?'));
-			convertion = CURRENCYS.find((value) => value.name === 'real');
+			convertion = currencys.find((value) => value.name === 'real');
 			alert(
 				'For ' +
 					money +
