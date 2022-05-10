@@ -39,20 +39,52 @@
 			<main class="px-3">
 				<section class="presentation">
 					<h1 class="mb-3">doNow.</h1>
-                    <p class="lead mb-4">Choice the currency you need</p>
-					<div>
-						<i class="currency-icon fa-solid fa-brazilian-real-sign me-5 fa-5x"></i>
-						<i class="currency-icon fa-solid fa-dollar-sign me-5 fa-5x"></i>
-						<i class="currency-icon fa-solid fa-euro-sign fa-5x"></i>
-					</div>
-					<div class="mt-5">
-						<a id="convert" href="#" class="btn btn-lg btn-outline-light me-4"
+					<article class="mb-5">
+						<p class="lead mb-4">Choice the currency you need</p>
+						<div>
+							<a id="real">
+								<i
+									class="currency fa-solid fa-brazilian-real-sign me-5 fa-5x"
+								></i>
+							</a>
+							<a id="dollar">
+								<i
+									class="currency fa-solid fa-dollar-sign me-5 fa-5x"
+								></i>
+							</a>
+							<a id="euro"
+								><i class="currency fa-solid fa-euro-sign fa-5x"></i
+							></a>
+						</div>
+					</article>
+					<article
+						class="form-floating mb-5 cover-container d-flex w-50 mx-auto flex-column"
+					>
+						<input
+							type="text"
+							class="bg-transparent form-control form"
+							id="floatingInput valueToConvert"
+						/>
+						<label for="floatingInput"
+							>How many <span class="currency">currency</span> do you
+							need?</label
+						>
+					</article>
+					<article class="mb-5">
+						<a id="convert" class="btn btn-lg btn-outline-light"
 							>Convert</a
 						>
-						<a id="clear" href="#" class="btn btn-lg btn-outline-light"
-							>Clear</a
+					</article>
+					<article>
+						<h3 class="mb-3">
+							For <span class="curreny-value">X</span>
+							<span class="currency">currency</span> you need
+							<span class="convert-value">X</span> pesos
+						</h3>
+						<a id="again" href="#" class="btn btn-lg btn-outline-light"
+							>Again</a
 						>
-					</div>
+					</article>
 				</section>
 			</main>
 
@@ -66,6 +98,6 @@
 			</footer>
 		</div>
 
-		<!-- <script src="../scripts/main.js"></script> -->
+		<script src="../scripts/main.js"></script>
 	</body>
 </html>
