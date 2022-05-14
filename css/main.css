@@ -49,18 +49,16 @@ body {
 	border-bottom-color: #fff;
 }
 
-/*
- * Currency icon style
- */
-.currency:hover {
-	color: #0d6efd ;
-	transition: 600ms;
+.text-currency {
+	color: #6295e2;
 }
-
-.form {
-    color: #fff !important;
+.form-control:focus {
+	border-color: #6295e2 !important;
+	border-top: none !important;
+	box-shadow: 0 0 5px transparent !important;
+	transition: 300ms;
 }
-
-.text-currency{
-    color: #6295e2;
+.change:hover {
+	transform: rotate(1turn);
+	transition: 300ms;
 }
