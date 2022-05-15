@@ -1,61 +1,31 @@
-let question = true;
-var valueToConvert;
-var convertion;
-
 const currencys = [
 	//this array contains all currency objects
-	{ name: 'dollar', value: 205.5 }, //currency object
-	{ name: 'euro', value: 122.89 },
-	{ name: 'real', value: 4.02 },
+	{ name: 'dollar', toPeso: 117.43, toEuro: 0.96, toReal: 5.06 }, //currency object
+	{ name: 'euro', toPeso: 122.26, toDollar: 1.04, toReal: 5.27 },
+	{ name: 'real', toPeso: 23.2, toDollar: 0.2, toEuro: 0.19 },
+	{ name: 'peso', toDollar: 0.0085, toEuro: 0.0082, toReal: 0.043 },
 ];
 
-function getConvertion() { //this function calculate the convertion for all currencys
-    value = convertion.value;
-    valueToConvert = document.getElementById('valueToConvert').value;
-    return alert(
-		'For ' +
-			valueToConvert +
-			' dollar you need ' +
-			value * valueToConvert + //call calculate the convertion
-			' pesos'
-	);
+function changeLabelLeft() {
+    var labelLeft = document.getElementById('labelLeft');
+	if (currency1.value != "") {
+		labelLeft.innerText = 'Amount of ' + currency1.value + 's';
+    }
+    else {
+        labelLeft.innerText = 'Amount';
+    }
+}
+function changeLabelRight() {
+    var labelRight = document.getElementById('labelRight');
+	if (currency2.value != "") {
+		labelRight.innerText = 'Amount of ' + currency2.value + 's';
+    }
+    else {
+        labelRight.innerText = 'Amount';
+    }
 }
 
-function getConvertion2(value, valueToConvert) {
-    return value * valueToConvert;
-}
-
-function dollar() {
-	convertion = currencys.find((value) => value.name === 'dollar'); //with .find the necessary currency is obtained
-	var convertBtn = document.getElementById('convert');
-	convertBtn.addEventListener('click', getConvertion);
-}
-function euro() {
-	valueToConvert = parseInt(prompt('how many euros do you need?'));
-	convertion = currencys.find((value) => value.name === 'euro');
-	alert(
-		'For ' +
-			valueToConvert +
-			' euros you need ' +
-			getConvertion2(convertion.value, valueToConvert) +
-			' pesos'
-	);
-}
-function real() {
-	valueToConvert = parseInt(prompt('how many reals do you need?'));
-	convertion = currencys.find((value) => value.name === 'real');
-	alert(
-		'For ' +
-			valueToConvert +
-			' reals you need ' +
-			getConvertion2(convertion.value, valueToConvert) +
-			' pesos'
-	);
-}
-
-opcion1 = document.getElementById('real');
-opcion1.addEventListener('click', real);
-opcion2 = document.getElementById('euro');
-opcion2.addEventListener('click', euro);
-opcion3 = document.getElementById('dollar');
-opcion3.addEventListener('click', dollar);
+let currency1 = document.getElementById('currency1');
+currency1.addEventListener('change', changeLabelLeft);
+let currency2 = document.getElementById('currency2');
+currency2.addEventListener('change', changeLabelRight);

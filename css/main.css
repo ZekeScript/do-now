@@ -32,7 +32,7 @@ body {
 	font-weight: 700;
 	color: rgba(255, 255, 255, 0.5);
 	background-color: transparent;
-	border-bottom: 0.25rem solid transparent;
+	border-bottom: 0.15rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,
@@ -54,11 +54,15 @@ body {
 }
 .form-control:focus {
 	border-color: #6295e2 !important;
-	border-top: none !important;
 	box-shadow: 0 0 5px transparent !important;
 	transition: 300ms;
 }
 .change:hover {
 	transform: rotate(1turn);
 	transition: 300ms;
+}
+
+footer > p > a:hover {
+    color: #6295e2 !important;
+    transition: 300ms;
 }
