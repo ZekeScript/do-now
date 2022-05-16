@@ -57,12 +57,23 @@ body {
 	box-shadow: 0 0 5px transparent !important;
 	transition: 300ms;
 }
-.change:hover {
-	transform: rotate(1turn);
-	transition: 300ms;
-}
 
 footer > p > a:hover {
     color: #6295e2 !important;
     transition: 300ms;
 }
+
+.rotate {
+    -webkit-animation:spin 300ms ease-in-out;
+     -moz-animation:spin 300ms ease-in-out;
+     animation:spin 300ms ease-in-out;
+ }
+ @-moz-keyframes spin {
+     100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+ }
+ @-webkit-keyframes spin {
+     100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+ }
+ @keyframes spin { 
+     100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+ }

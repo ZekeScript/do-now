@@ -1,31 +1,71 @@
+var rate, amount, mainCurrency, secondaryCurrency;
 const currencys = [
 	//this array contains all currency objects
-	{ name: 'dollar', toPeso: 117.43, toEuro: 0.96, toReal: 5.06 }, //currency object
-	{ name: 'euro', toPeso: 122.26, toDollar: 1.04, toReal: 5.27 },
-	{ name: 'real', toPeso: 23.2, toDollar: 0.2, toEuro: 0.19 },
-	{ name: 'peso', toDollar: 0.0085, toEuro: 0.0082, toReal: 0.043 },
+	{ name: 'dollar', peso: 117.43, dollar: 1, euro: 0.96, real: 5.06 }, //currency object
+	{ name: 'euro', peso: 122.26, dollar: 1.04, euro: 1, real: 5.27 },
+	{ name: 'real', peso: 23.2, dollar: 0.2, euro: 0.19, real: 1 },
+	{ name: 'peso', peso: 1, dollar: 0.0085, euro: 0.0082, real: 0.043 },
 ];
+
+//rotate animation
+function refreshBtn() {
+    let rotacion = (360 / 100) * 2.5; // rotation time
+    setTimeout(() => {
+        document.getElementById('btnRefresh').classList.add('rotate');
+    }, 100);
+    
+    setTimeout(() => {
+        document.getElementById('btnRefresh').classList.remove('rotate');
+    }, rotacion);
+}
 
 function changeLabelLeft() {
     var labelLeft = document.getElementById('labelLeft');
-	if (currency1.value != "") {
-		labelLeft.innerText = 'Amount of ' + currency1.value + 's';
-    }
-    else {
-        labelLeft.innerText = 'Amount';
-    }
+    if (currencyLeft.value != '') {
+        labelLeft.innerText = `Amount of ${currencyLeft.value}s`;
+	} else {
+        labelLeft.innerHTML = 'Amount';
+        InputLeft = document.getElementById('floatingInputLeft');
+        InputLeft.setAttribute('disabled', '');
+	}
 }
 function changeLabelRight() {
     var labelRight = document.getElementById('labelRight');
-	if (currency2.value != "") {
-		labelRight.innerText = 'Amount of ' + currency2.value + 's';
-    }
-    else {
-        labelRight.innerText = 'Amount';
-    }
+    if (currencyRight.value != '') {
+        labelRight.innerText = `Amount of ${currencyRight.value}s`;
+	} else {
+        labelRight.innerHTML = 'Amount';
+        floatingInputRight = document.getElementById('floatingInputRight');
+        floatingInputRight.setAttribute('disabled', '');
+	}
+}
+function getConvertion(amount, rate) {
+    return amount * rate;
+}
+function convertionFromLeft() {
+    amount = floatingInputLeft.value;
+    secondaryCurrency = currencyRight.value;
+    mainCurrency = currencys.find((currency) => currency.name === currencyLeft.value);
+    rate = mainCurrency[secondaryCurrency];
+    floatingInputRight = document.getElementById('floatingInputRight');
+    floatingInputRight.value = (amount * rate).toFixed(2);
+}
+function convertionFromRight() {
+    amount = floatingInputRight.value;
+	secondaryCurrency = currencyLeft.value;
+	mainCurrency = currencys.find((currency) => currency.name === currencyRight.value);
+	rate = mainCurrency[secondaryCurrency];
+	floatingInputLeft = document.getElementById('floatingInputLeft');
+	floatingInputLeft.value = (amount * rate).toFixed(2);
 }
 
-let currency1 = document.getElementById('currency1');
-currency1.addEventListener('change', changeLabelLeft);
-let currency2 = document.getElementById('currency2');
-currency2.addEventListener('change', changeLabelRight);
+let currencyLeft = document.getElementById('currencyLeft');
+currencyLeft.addEventListener('change', changeLabelLeft);
+let currencyRight = document.getElementById('currencyRight');
+currencyRight.addEventListener('change', changeLabelRight);
+
+let floatingInputLeft = document.getElementById('floatingInputLeft');
+floatingInputLeft.addEventListener('keyup', convertionFromLeft);
+
+let floatingInputRight = document.getElementById('floatingInputRight');
+floatingInputRight.addEventListener('keyup', convertionFromRight);

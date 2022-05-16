@@ -23,10 +23,17 @@
 	</head>
 	<body class="d-flex h-100 text-center text-white bg-dark">
 		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <!-- Navbar -->
+			<!-- Navbar -->
 			<header class="mb-auto">
 				<div>
-					<h3 class="float-md-start mb-0">doNow</h3>
+					<h3 class="float-md-start mb-0">
+						<a
+							id="logo"
+							class="text-decoration-none text-light"
+							href="../index.html"
+							>doNow</a
+						>
+					</h3>
 					<nav class="nav nav-masthead justify-content-center float-md-end">
 						<a class="nav-link" aria-current="page" href="../index.html"
 							>Home</a
@@ -44,7 +51,7 @@
 				<section class="row justify-content-between mb-5">
 					<article class="col-5">
 						<select
-							id="currency1"
+							id="currencyLeft"
 							class="form-select bg-dark text-currency"
 							aria-label="Default select example"
 						>
@@ -55,7 +62,11 @@
 							<option value="peso">Peso</option>
 						</select>
 					</article>
-					<article class="col-1 change">
+					<article
+						id="btnRefresh"
+						class="col-1 change btnRefreshClass"
+						onclick="refreshBtn()"
+					>
 						<i
 							id="cross"
 							class="fa-solid fa-arrow-right-arrow-left fa-xl"
@@ -63,7 +74,7 @@
 					</article>
 					<article class="col-5">
 						<select
-							id="currency2"
+							id="currencyRight"
 							class="form-select bg-dark text-currency"
 							aria-label="Default select example"
 						>
@@ -108,9 +119,16 @@
 			<footer class="mt-auto text-white-50">
 				<p>
 					For
-					<a href="https://www.coderhouse.com/" class="text-white text-decoration-none">CoderHouse</a
+					<a
+						href="https://www.coderhouse.com/"
+						class="text-white text-decoration-none"
+						>CoderHouse</a
 					>, by
-					<a href="https://github.com/ezEst6" class="text-white text-decoration-none">@EzEst</a>.
+					<a
+						href="https://github.com/ezEst6"
+						class="text-white text-decoration-none"
+						>@EzEst</a
+					>.
 				</p>
 			</footer>
 		</div>
