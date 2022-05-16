@@ -23,6 +23,7 @@ function changeLabelLeft() {
     var labelLeft = document.getElementById('labelLeft');
     if (currencyLeft.value != '') {
         labelLeft.innerText = `Amount of ${currencyLeft.value}s`;
+        convertionFromLeft();
 	} else {
         labelLeft.innerHTML = 'Amount';
         InputLeft = document.getElementById('floatingInputLeft');
@@ -33,6 +34,7 @@ function changeLabelRight() {
     var labelRight = document.getElementById('labelRight');
     if (currencyRight.value != '') {
         labelRight.innerText = `Amount of ${currencyRight.value}s`;
+        convertionFromRight();
 	} else {
         labelRight.innerHTML = 'Amount';
         floatingInputRight = document.getElementById('floatingInputRight');
