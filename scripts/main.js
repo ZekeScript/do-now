@@ -9,51 +9,67 @@ const currencys = [
 
 //rotate animation
 function refreshBtn() {
-    let rotacion = (360 / 100) * 2.5; // rotation time
-    setTimeout(() => {
-        document.getElementById('btnRefresh').classList.add('rotate');
-    }, 100);
-    
-    setTimeout(() => {
-        document.getElementById('btnRefresh').classList.remove('rotate');
-    }, rotacion);
+	var currencyLeft = document.getElementById('currencyLeft');
+	var currencyRight = document.getElementById('currencyRight');
+
+	var newRightCurrencyValue = currencyLeft.value;
+	var newLeftCurrencyValue = currencyRight.value;
+	currencyLeft.value = newLeftCurrencyValue;
+	currencyRight.value = newRightCurrencyValue;
+	convertionFromLeft();
+
+	let rotacion = (360 / 100) * 2.5; // rotation time
+	setTimeout(() => {
+		document.getElementById('btnRefresh').classList.add('rotate');
+	}, 100);
+
+	setTimeout(() => {
+		document.getElementById('btnRefresh').classList.remove('rotate');
+	}, rotacion);
+}
+
+function clean() {
+	floatingInputLeft = document.getElementById('floatingInputLeft');
+	floatingInputLeft.value = 0;
+	floatingInputRight = document.getElementById('floatingInputRight');
+	floatingInputRight.value = 0;
 }
 
 function changeLabelLeft() {
-    var labelLeft = document.getElementById('labelLeft');
-    if (currencyLeft.value != '') {
-        labelLeft.innerText = `Amount of ${currencyLeft.value}s`;
-        convertionFromLeft();
+	var labelLeft = document.getElementById('labelLeft');
+	if (currencyLeft.value != '') {
+		labelLeft.innerText = `Amount of ${currencyLeft.value}s`;
+		convertionFromLeft();
 	} else {
-        labelLeft.innerHTML = 'Amount';
-        InputLeft = document.getElementById('floatingInputLeft');
-        InputLeft.setAttribute('disabled', '');
+		labelLeft.innerHTML = 'Amount';
+		InputLeft = document.getElementById('floatingInputLeft');
+		InputLeft.setAttribute('disabled', '');
 	}
 }
 function changeLabelRight() {
-    var labelRight = document.getElementById('labelRight');
-    if (currencyRight.value != '') {
-        labelRight.innerText = `Amount of ${currencyRight.value}s`;
-        convertionFromRight();
+	var labelRight = document.getElementById('labelRight');
+	if (currencyRight.value != '') {
+		labelRight.innerText = `Amount of ${currencyRight.value}s`;
+		convertionFromRight();
 	} else {
-        labelRight.innerHTML = 'Amount';
-        floatingInputRight = document.getElementById('floatingInputRight');
-        floatingInputRight.setAttribute('disabled', '');
+		labelRight.innerHTML = 'Amount';
+		floatingInputRight = document.getElementById('floatingInputRight');
+		floatingInputRight.setAttribute('disabled', '');
 	}
 }
 function getConvertion(amount, rate) {
-    return amount * rate;
+	return amount * rate;
 }
 function convertionFromLeft() {
-    amount = floatingInputLeft.value;
-    secondaryCurrency = currencyRight.value;
-    mainCurrency = currencys.find((currency) => currency.name === currencyLeft.value);
-    rate = mainCurrency[secondaryCurrency];
-    floatingInputRight = document.getElementById('floatingInputRight');
-    floatingInputRight.value = (amount * rate).toFixed(2);
+	amount = floatingInputLeft.value;
+	secondaryCurrency = currencyRight.value;
+	mainCurrency = currencys.find((currency) => currency.name === currencyLeft.value);
+	rate = mainCurrency[secondaryCurrency];
+	floatingInputRight = document.getElementById('floatingInputRight');
+	floatingInputRight.value = (amount * rate).toFixed(2);
 }
 function convertionFromRight() {
-    amount = floatingInputRight.value;
+	amount = floatingInputRight.value;
 	secondaryCurrency = currencyLeft.value;
 	mainCurrency = currencys.find((currency) => currency.name === currencyRight.value);
 	rate = mainCurrency[secondaryCurrency];
