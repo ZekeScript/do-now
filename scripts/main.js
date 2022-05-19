@@ -64,7 +64,10 @@ function convertionFromLeft() {
 	amount = floatingInputLeft.value;
 	secondaryCurrency = currencyRight.value;
 	mainCurrency = currencys.find((currency) => currency.name === currencyLeft.value);
-	rate = mainCurrency[secondaryCurrency];
+    rate = mainCurrency[secondaryCurrency];
+    localStorage.setItem('mainCurrency', mainCurrency);
+	localStorage.setItem('secondaryCurrency', secondaryCurrency);
+	localStorage.setItem('amount', amount);
 	floatingInputRight = document.getElementById('floatingInputRight');
 	floatingInputRight.value = (amount * rate).toFixed(2);
 }
@@ -72,9 +75,26 @@ function convertionFromRight() {
 	amount = floatingInputRight.value;
 	secondaryCurrency = currencyLeft.value;
 	mainCurrency = currencys.find((currency) => currency.name === currencyRight.value);
-	rate = mainCurrency[secondaryCurrency];
+    rate = mainCurrency[secondaryCurrency];
+    localStorage.setItem('mainCurrency', mainCurrency);
+	localStorage.setItem('secondaryCurrency', secondaryCurrency);
+	localStorage.setItem('amount', amount);
 	floatingInputLeft = document.getElementById('floatingInputLeft');
 	floatingInputLeft.value = (amount * rate).toFixed(2);
+}
+
+function getLastConvertion() {
+    var currencyLeft = document.getElementById('currencyLeft');
+    var currencyRight = document.getElementById('currencyRight');
+    
+	var newLeftCurrencyValue = localStorage.getItem(mainCurrency);
+    var newRightCurrencyValue = localStorage.getItem(secondaryCurrency);
+    var amount = localStorage.getItem(amount);
+	currencyLeft.value = newLeftCurrencyValue;
+    currencyRight.value = newRightCurrencyValue;
+    floatingInputLeft = document.getElementById('floatingInputLeft');
+    floatingInputLeft.value = localStorage.getItem(amount);
+	convertionFromLeft();
 }
 
 let currencyLeft = document.getElementById('currencyLeft');
@@ -87,3 +107,6 @@ floatingInputLeft.addEventListener('keyup', convertionFromLeft);
 
 let floatingInputRight = document.getElementById('floatingInputRight');
 floatingInputRight.addEventListener('keyup', convertionFromRight);
+
+let lastConvertion = document.getElementById('lastConvertion');
+lastConvertion.addEventListener('click', getLastConvertion);
