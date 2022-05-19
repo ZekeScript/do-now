@@ -57,15 +57,12 @@ function changeLabelRight() {
 		floatingInputRight.setAttribute('disabled', '');
 	}
 }
-function getConvertion(amount, rate) {
-	return amount * rate;
-}
 function convertionFromLeft() {
 	amount = floatingInputLeft.value;
 	secondaryCurrency = currencyRight.value;
 	mainCurrency = currencys.find((currency) => currency.name === currencyLeft.value);
     rate = mainCurrency[secondaryCurrency];
-    localStorage.setItem('mainCurrency', mainCurrency);
+    localStorage.setItem('mainCurrency', JSON.stringify(mainCurrency));
 	localStorage.setItem('secondaryCurrency', secondaryCurrency);
 	localStorage.setItem('amount', amount);
 	floatingInputRight = document.getElementById('floatingInputRight');
@@ -76,7 +73,7 @@ function convertionFromRight() {
 	secondaryCurrency = currencyLeft.value;
 	mainCurrency = currencys.find((currency) => currency.name === currencyRight.value);
     rate = mainCurrency[secondaryCurrency];
-    localStorage.setItem('mainCurrency', mainCurrency);
+    localStorage.setItem('mainCurrency', JSON.stringify(mainCurrency));
 	localStorage.setItem('secondaryCurrency', secondaryCurrency);
 	localStorage.setItem('amount', amount);
 	floatingInputLeft = document.getElementById('floatingInputLeft');
@@ -84,16 +81,16 @@ function convertionFromRight() {
 }
 
 function getLastConvertion() {
-    var currencyLeft = document.getElementById('currencyLeft');
-    var currencyRight = document.getElementById('currencyRight');
+    currencyLeft = document.getElementById('currencyLeft');
+    currencyRight = document.getElementById('currencyRight');
+    amount = document.getElementById('floatingInputLeft');
     
-	var newLeftCurrencyValue = localStorage.getItem(mainCurrency);
-    var newRightCurrencyValue = localStorage.getItem(secondaryCurrency);
-    var amount = localStorage.getItem(amount);
-	currencyLeft.value = newLeftCurrencyValue;
-    currencyRight.value = newRightCurrencyValue;
-    floatingInputLeft = document.getElementById('floatingInputLeft');
-    floatingInputLeft.value = localStorage.getItem(amount);
+	var newLeftCurrency = JSON.parse(localStorage.getItem('mainCurrency'));
+    var newRightCurrency = localStorage.getItem('secondaryCurrency');
+    var newAmount = localStorage.getItem('amount');
+	currencyLeft.value = newLeftCurrency.name;
+    currencyRight.value = newRightCurrency;
+    amount.value = newAmount;
 	convertionFromLeft();
 }
 
