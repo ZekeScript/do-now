@@ -24,9 +24,9 @@ function refreshBtn() {
  * and save the values in the localStorage
  */
 function saveValues() {
-    localStorage.setItem('mainCurrency', JSON.stringify(mainCurrency));
-    localStorage.setItem('secondaryCurrency', secondaryCurrency);
-    localStorage.setItem('amount', amount);    
+	localStorage.setItem('mainCurrency', JSON.stringify(mainCurrency));
+	localStorage.setItem('secondaryCurrency', secondaryCurrency);
+	localStorage.setItem('amount', amount);
 }
 
 /**
@@ -40,8 +40,8 @@ function fromLeft() {
 	amount = leftInput.value;
 	secondaryCurrency = rightCurrency.value;
 	mainCurrency = currencys.find((currency) => currency.name === leftCurrency.value);
-    rate = mainCurrency[secondaryCurrency];
-    saveValues();
+	rate = mainCurrency[secondaryCurrency];
+	saveValues();
 	rightInput = document.getElementById('rightInput');
 	rightInput.value = (amount * rate).toFixed(2);
 }
@@ -49,8 +49,8 @@ function fromRight() {
 	amount = rightInput.value;
 	secondaryCurrency = leftCurrency.value;
 	mainCurrency = currencys.find((currency) => currency.name === rightCurrency.value);
-    rate = mainCurrency[secondaryCurrency];
-    saveValues();
+	rate = mainCurrency[secondaryCurrency];
+	saveValues();
 	leftInput = document.getElementById('leftInput');
 	leftInput.value = (amount * rate).toFixed(2);
 }
@@ -70,17 +70,17 @@ rightInput.onkeyup = () => fromRight();
 // Events to get last conversion
 let lastConvertion = document.getElementById('lastConvertion');
 lastConvertion.onclick = () => {
-    let leftCurrency = document.getElementById('leftCurrency');
-    let rightCurrency = document.getElementById('rightCurrency');
-    amount = document.getElementById('leftInput');
-    
-    var lastLeftCurrency = JSON.parse(localStorage.getItem('mainCurrency'));
-    var lastRightCurrency = localStorage.getItem('secondaryCurrency');
-    var lastAmount = localStorage.getItem('amount');
-    leftCurrency.value = lastLeftCurrency.name;
-    rightCurrency.value = lastRightCurrency;
-    amount.value = lastAmount;
-    fromLeft();
+	let leftCurrency = document.getElementById('leftCurrency');
+	let rightCurrency = document.getElementById('rightCurrency');
+	amount = document.getElementById('leftInput');
+
+	var lastLeftCurrency = JSON.parse(localStorage.getItem('mainCurrency'));
+	var lastRightCurrency = localStorage.getItem('secondaryCurrency');
+	var lastAmount = localStorage.getItem('amount');
+	leftCurrency.value = lastLeftCurrency.name;
+	rightCurrency.value = lastRightCurrency;
+	amount.value = lastAmount;
+	fromLeft();
 };
 
 // Event to cross the currencies

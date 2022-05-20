@@ -13,7 +13,6 @@
 /*
  * Base structure
  */
-
 body {
 	text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
 	box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
@@ -26,7 +25,6 @@ body {
 /*
  * Header
  */
-
 .nav-masthead .nav-link {
 	padding: 0.25rem 0;
 	font-weight: 700;
@@ -49,31 +47,50 @@ body {
 	border-bottom-color: #fff;
 }
 
+/*
+ * Body
+ */
 .text-currency {
 	color: #6295e2;
 }
+
 .form-control:focus {
 	border-color: #6295e2 !important;
 	box-shadow: 0 0 5px transparent !important;
 	transition: 300ms;
 }
 
-footer > p > a:hover {
-    color: #6295e2 !important;
-    transition: 300ms;
+.rotate {
+	-webkit-animation: spin 300ms ease-in-out;
+	-moz-animation: spin 300ms ease-in-out;
+	animation: spin 300ms ease-in-out;
 }
 
-.rotate {
-    -webkit-animation:spin 300ms ease-in-out;
-     -moz-animation:spin 300ms ease-in-out;
-     animation:spin 300ms ease-in-out;
- }
- @-moz-keyframes spin {
-     100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
- }
- @-webkit-keyframes spin {
-     100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
- }
- @keyframes spin { 
-     100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
- }
+@-moz-keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+/*
+ * Footer
+ */
+footer > p > a:hover {
+	color: #6295e2 !important;
+	transition: 300ms;
+}
