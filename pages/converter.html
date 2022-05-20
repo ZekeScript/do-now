@@ -51,21 +51,18 @@
 				<section class="row justify-content-between mb-5">
 					<article class="col-5">
 						<select
-							id="currencyLeft"
+							id="leftCurrency"
 							class="form-select bg-dark text-currency"
 							aria-label="Default select example"
 						>
+							<option value="" selected disabled hidden>Choose here</option>
 							<option value="dollar">Dollar</option>
 							<option value="euro">Euro</option>
 							<option value="real">Real</option>
 							<option value="peso">Peso</option>
 						</select>
 					</article>
-					<article
-						id="btnRefresh"
-						class="col-1 change btnRefreshClass"
-						onclick="refreshBtn()"
-					>
+					<article id="btnRefresh" class="col-1 change btnRefreshClass">
 						<i
 							id="cross"
 							class="fa-solid fa-arrow-right-arrow-left fa-xl"
@@ -73,10 +70,11 @@
 					</article>
 					<article class="col-5">
 						<select
-							id="currencyRight"
+							id="rightCurrency"
 							class="form-select bg-dark text-currency"
 							aria-label="Default select example"
 						>
+							<option value="" selected disabled hidden>Choose here</option>
 							<option value="dollar">Dollar</option>
 							<option value="euro">Euro</option>
 							<option value="real">Real</option>
@@ -85,37 +83,41 @@
 					</article>
 				</section>
 
-				<!-- Amount of currency -->
+				<!-- Amount -->
 				<section class="row justify-content-between">
 					<article class="form-floating col-5">
 						<input
-							id="floatingInputLeft"
+							id="leftInput"
 							type="text"
 							class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+							value="0"
 						/>
-						<label id="labelLeft" for="floatingInputLeft">Amount</label>
+						<label id="labelLeft" for="leftInput">Amount</label>
 					</article>
 					<article class="col-1">
 						<h1>=</h1>
 					</article>
 					<article class="form-floating col-5">
 						<input
-							id="floatingInputRight"
+							id="rightInput"
 							type="text"
 							class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+							value="0"
 						/>
-						<label id="labelRight" for="floatingInputRight">Amount</label>
+						<label id="labelRight" for="rightInput">Amount</label>
 					</article>
 				</section>
 
 				<!-- Reset button -->
 				<section class="d-flex mt-5 justify-content-center">
-				    <p class="lead me-5">
-    					<a class="btn btn-outline-light" onclick="clean()">Clean!</a>
-    				</p>
-                    <p class="lead">
-    					<a id="lastConvertion" class="btn btn-outline-light">Last convertion</a>
-    				</p>
+					<p class="lead me-5">
+						<a class="btn btn-outline-light" id="clean">Clean!</a>
+					</p>
+					<p class="lead">
+						<a id="lastConvertion" class="btn btn-outline-light"
+							>Last convertion</a
+						>
+					</p>
 				</section>
 			</main>
 
