@@ -42,6 +42,7 @@ function fromLeft() {
 	mainCurrency = currencys.find((currency) => currency.name === leftCurrency.value);
 	rate = mainCurrency[secondaryCurrency];
 	saveValues();
+	rightInput = document.getElementById('rightInput');
 	rightInput.value = (amount * rate).toFixed(2);
 }
 function fromRight() {
@@ -50,48 +51,67 @@ function fromRight() {
 	mainCurrency = currencys.find((currency) => currency.name === rightCurrency.value);
 	rate = mainCurrency[secondaryCurrency];
 	saveValues();
+	leftInput = document.getElementById('leftInput');
 	leftInput.value = (amount * rate).toFixed(2);
 }
 
 // Events associated with the Select
 let leftCurrency = document.getElementById('leftCurrency');
-leftCurrency.onchange = () => fromRight();
+leftCurrency.onchange = () => fromLeft();
 let rightCurrency = document.getElementById('rightCurrency');
-rightCurrency.onchange = () => fromLeft();
+rightCurrency.onchange = () => fromRight();
 
 // Events associated with the Input
 let leftInput = document.getElementById('leftInput');
 leftInput.onkeyup = () => fromLeft();
+leftInput.onchange = () => fromLeft();
 let rightInput = document.getElementById('rightInput');
 rightInput.onkeyup = () => fromRight();
+rightInput.onchange = () => fromRight();
 
 // Events to get last conversion
 const lastConvertion = document.getElementById('lastConvertion');
 lastConvertion.onclick = () => {
+	leftCurrency = document.getElementById('leftCurrency');
+	rightCurrency = document.getElementById('rightCurrency');
 	amount = document.getElementById('leftInput');
+
 	const lastLeftCurrency = JSON.parse(localStorage.getItem('mainCurrency'));
 	const lastRightCurrency = localStorage.getItem('secondaryCurrency');
 	const lastAmount = localStorage.getItem('amount');
-	leftCurrency.value = lastLeftCurrency.name;
-	rightCurrency.value = lastRightCurrency;
-	amount.value = lastAmount;
-	fromLeft();
+	if (lastRightCurrency != null) {
+		leftCurrency.value = lastLeftCurrency.name;
+		rightCurrency.value = lastRightCurrency;
+		amount.value = lastAmount;
+		fromLeft();
+	} else {
+		alert('No convertion yet');
+	}
 };
 
 // Event to cross the currencies
 const crossBtn = document.getElementById('btnRefresh');
-crossBtn.onmousedown = refreshBtn;
 crossBtn.onclick = () => {
+	leftCurrency = document.getElementById('leftCurrency');
+	rightCurrency = document.getElementById('rightCurrency');
+
 	const newRightCurrencyValue = leftCurrency.value;
 	const newLeftCurrencyValue = rightCurrency.value;
-	leftCurrency.value = newLeftCurrencyValue;
-	rightCurrency.value = newRightCurrencyValue;
-	fromLeft();
+	if (newRightCurrencyValue != '' && newLeftCurrencyValue != '') {
+		refreshBtn();
+		leftCurrency.value = newLeftCurrencyValue;
+		rightCurrency.value = newRightCurrencyValue;
+		fromLeft();
+	} else {
+		alert('Select both currencies');
+	}
 };
 
 // Cleanup event
 let cleanBtn = document.getElementById('clean');
 cleanBtn.onclick = () => {
+	leftInput = document.getElementById('leftInput');
 	leftInput.value = 0;
+	rightInput = document.getElementById('rightInput');
 	rightInput.value = 0;
 };
