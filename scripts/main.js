@@ -37,22 +37,28 @@ function saveValues() {
  * and finally uses the attached rate and amount in the input to do the calculations for the conversion
  */
 function fromLeft() {
-	amount = leftInput.value;
-	secondaryCurrency = rightCurrency.value;
-	mainCurrency = currencys.find((currency) => currency.name === leftCurrency.value);
-	rate = mainCurrency[secondaryCurrency];
-	saveValues();
-	rightInput = document.getElementById('rightInput');
-	rightInput.value = (amount * rate).toFixed(2);
+	if (leftCurrency.value != '' && rightCurrency.value != '') {
+		amount = leftInput.value;
+		secondaryCurrency = rightCurrency.value;
+		mainCurrency = currencys.find((currency) => currency.name === leftCurrency.value);
+		rate = mainCurrency[secondaryCurrency];
+		saveValues();
+		rightInput = document.getElementById('rightInput');
+		rightInput.value = (amount * rate).toFixed(2);
+	}
 }
 function fromRight() {
-	amount = rightInput.value;
-	secondaryCurrency = leftCurrency.value;
-	mainCurrency = currencys.find((currency) => currency.name === rightCurrency.value);
-	rate = mainCurrency[secondaryCurrency];
-	saveValues();
-	leftInput = document.getElementById('leftInput');
-	leftInput.value = (amount * rate).toFixed(2);
+	if (leftCurrency.value != '' && rightCurrency.value != '') {
+		amount = rightInput.value;
+		secondaryCurrency = leftCurrency.value;
+		mainCurrency = currencys.find(
+			(currency) => currency.name === rightCurrency.value
+		);
+		rate = mainCurrency[secondaryCurrency];
+		saveValues();
+		leftInput = document.getElementById('leftInput');
+		leftInput.value = (amount * rate).toFixed(2);
+	}
 }
 
 // Events associated with the Select
@@ -110,8 +116,6 @@ crossBtn.onclick = () => {
 // Cleanup event
 let cleanBtn = document.getElementById('clean');
 cleanBtn.onclick = () => {
-	leftInput = document.getElementById('leftInput');
 	leftInput.value = 0;
-	rightInput = document.getElementById('rightInput');
 	rightInput.value = 0;
 };
