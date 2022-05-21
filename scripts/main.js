@@ -1,4 +1,4 @@
-var rate, amount, mainCurrency, secondaryCurrency;
+let rate, amount, mainCurrency, secondaryCurrency;
 const currencys = [
 	// This array contains all currency objects
 	{ name: 'dollar', peso: 117.43, dollar: 1, euro: 0.96, real: 5.06 }, // currency object
@@ -42,7 +42,6 @@ function fromLeft() {
 	mainCurrency = currencys.find((currency) => currency.name === leftCurrency.value);
 	rate = mainCurrency[secondaryCurrency];
 	saveValues();
-	rightInput = document.getElementById('rightInput');
 	rightInput.value = (amount * rate).toFixed(2);
 }
 function fromRight() {
@@ -51,7 +50,6 @@ function fromRight() {
 	mainCurrency = currencys.find((currency) => currency.name === rightCurrency.value);
 	rate = mainCurrency[secondaryCurrency];
 	saveValues();
-	leftInput = document.getElementById('leftInput');
 	leftInput.value = (amount * rate).toFixed(2);
 }
 
@@ -68,15 +66,12 @@ let rightInput = document.getElementById('rightInput');
 rightInput.onkeyup = () => fromRight();
 
 // Events to get last conversion
-let lastConvertion = document.getElementById('lastConvertion');
+const lastConvertion = document.getElementById('lastConvertion');
 lastConvertion.onclick = () => {
-	let leftCurrency = document.getElementById('leftCurrency');
-	let rightCurrency = document.getElementById('rightCurrency');
 	amount = document.getElementById('leftInput');
-
-	var lastLeftCurrency = JSON.parse(localStorage.getItem('mainCurrency'));
-	var lastRightCurrency = localStorage.getItem('secondaryCurrency');
-	var lastAmount = localStorage.getItem('amount');
+	const lastLeftCurrency = JSON.parse(localStorage.getItem('mainCurrency'));
+	const lastRightCurrency = localStorage.getItem('secondaryCurrency');
+	const lastAmount = localStorage.getItem('amount');
 	leftCurrency.value = lastLeftCurrency.name;
 	rightCurrency.value = lastRightCurrency;
 	amount.value = lastAmount;
@@ -84,14 +79,11 @@ lastConvertion.onclick = () => {
 };
 
 // Event to cross the currencies
-let crossBtn = document.getElementById('btnRefresh');
+const crossBtn = document.getElementById('btnRefresh');
 crossBtn.onmousedown = refreshBtn;
 crossBtn.onclick = () => {
-	var leftCurrency = document.getElementById('leftCurrency');
-	var rightCurrency = document.getElementById('rightCurrency');
-
-	var newRightCurrencyValue = leftCurrency.value;
-	var newLeftCurrencyValue = rightCurrency.value;
+	const newRightCurrencyValue = leftCurrency.value;
+	const newLeftCurrencyValue = rightCurrency.value;
 	leftCurrency.value = newLeftCurrencyValue;
 	rightCurrency.value = newRightCurrencyValue;
 	fromLeft();
@@ -100,8 +92,6 @@ crossBtn.onclick = () => {
 // Cleanup event
 let cleanBtn = document.getElementById('clean');
 cleanBtn.onclick = () => {
-	leftInput = document.getElementById('leftInput');
 	leftInput.value = 0;
-	rightInput = document.getElementById('rightInput');
 	rightInput.value = 0;
 };
