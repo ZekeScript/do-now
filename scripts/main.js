@@ -91,7 +91,10 @@ lastConvertion.onclick = () => {
 		amount.value = lastAmount;
 		fromLeft();
 	} else {
-		alert('No convertion yet');
+		Toastify({
+			text: 'No convertion yet!',
+			duration: 3000
+		}).showToast();
 	}
 };
 
@@ -109,7 +112,10 @@ crossBtn.onclick = () => {
 		rightCurrency.value = newRightCurrencyValue;
 		fromLeft();
 	} else {
-		alert('Select both currencies');
+		Toastify({
+			text: 'Select both currencies!',
+			duration: 3000
+		}).showToast();
 	}
 };
 
