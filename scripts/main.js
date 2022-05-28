@@ -1,3 +1,10 @@
+fetch('https://api.bluelytics.com.ar/v2/latest')
+.then((res) => res.json())
+.then((data) => {
+	console.log(data.blue.value_sell);
+});
+
+
 let rate, amount, mainCurrency, secondaryCurrency;
 const currencys = [
 	// This array contains all currency objects
