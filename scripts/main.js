@@ -1,11 +1,16 @@
-fetch('https://api.bluelytics.com.ar/v2/latest')
-.then((res) => res.json())
-.then((data) => {
-	console.log(data.blue.value_sell);
-});
+let rate, amount, mainCurrency, secondaryCurrency, convertionRate;
+
+mainCurrency = 'USD';
+secondaryCurrency = 'EUR';
+const pedirRate = async () => {
+	const resp = await fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/${mainCurrency}`)
+	const data = await resp.json()
+		console.log(data.conversion_rates[secondaryCurrency])
+	};
+console.log(rate);
 
 
-let rate, amount, mainCurrency, secondaryCurrency;
+
 const currencys = [
 	// This array contains all currency objects
 	{ name: 'dollar', peso: 117.43, dollar: 1, euro: 0.96, real: 5.06 }, // currency object
@@ -47,24 +52,38 @@ function fromLeft() {
 	if (leftCurrency.value != '' && rightCurrency.value != '') {
 		amount = leftInput.value;
 		secondaryCurrency = rightCurrency.value;
-		mainCurrency = currencys.find((currency) => currency.name === leftCurrency.value);
-		rate = mainCurrency[secondaryCurrency];
+		mainCurrency = leftCurrency.value;
+		// mainCurrency = currencys.find(
+		// 	(currency) => currency.name === leftCurrency.value
+		// );
+		// rate = mainCurrency[secondaryCurrency];
+		fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/${mainCurrency}`)
+		.then((res) => res.json())
+		.then((data) => {
+			convertionRate = data.conversion_rates[secondaryCurrency]
+		});
 		saveValues();
 		rightInput = document.getElementById('rightInput');
-		rightInput.value = (amount * rate).toFixed(2);
+		rightInput.value = (amount * convertionRate).toFixed(2);
 	}
 }
 function fromRight() {
 	if (leftCurrency.value != '' && rightCurrency.value != '') {
 		amount = rightInput.value;
 		secondaryCurrency = leftCurrency.value;
-		mainCurrency = currencys.find(
-			(currency) => currency.name === rightCurrency.value
-		);
-		rate = mainCurrency[secondaryCurrency];
+		mainCurrency = rightCurrency.value;
+		// mainCurrency = currencys.find(
+		// 	(currency) => currency.name === rightCurrency.value
+		// );
+		// rate = mainCurrency[secondaryCurrency];
+		fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/${mainCurrency}`)
+		.then((res) => res.json())
+		.then((data) => {
+			convertionRate = data.conversion_rates[secondaryCurrency]
+		});
 		saveValues();
 		leftInput = document.getElementById('leftInput');
-		leftInput.value = (amount * rate).toFixed(2);
+		leftInput.value = (amount * convertionRate).toFixed(2);
 	}
 }
 
