@@ -51,7 +51,7 @@ const getCurrencyValues = () => {
 		// 	euro: data.conversion_rates.EUR,
 		// 	real: data.conversion_rates.BRL
 		// })
-		let name = 'pesos'
+		let name = 'peso'
 		let	peso = 1
 		let	euro = data.conversion_rates.EUR
 		let	real = data.conversion_rates.BRL
