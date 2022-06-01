@@ -1,31 +1,102 @@
-let rate, amount, mainCurrency, secondaryCurrency, convertionRate;
+let amount, mainCurrency, secondaryCurrency, convertionRate, lastUpdate;
 
-mainCurrency = 'USD';
-secondaryCurrency = 'EUR';
-const pedirRate = async () => {
-	const resp = await fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/${mainCurrency}`)
-	const data = await resp.json()
-		console.log(data.conversion_rates[secondaryCurrency])
-	};
-console.log(rate);
+const currencys = [];
 
+const correctDollar = (v6Name, v6Peso, v6Euro, v6Real) => {
+	fetch(`https://api.bluelytics.com.ar/v2/latest`)
+	.then(res => res.json())
+	.then(data => {
+		currencys.push({
+			name: v6Name,
+			peso: v6Peso,
+			euro: v6Euro,
+			real: v6Real,
+			dollar: 1/data.blue.value_sell
+		})
+	});
+};
+const correctPeso = (v6Name, v6Dollar, v6Euro, v6Real)	=>{
+	fetch(`https://api.bluelytics.com.ar/v2/latest`)
+	.then(res => res.json())
+	.then(data => {
+		currencys.push({
+			name: v6Name,
+			dollar: v6Dollar,
+			euro: v6Euro,
+			real: v6Real,
+			peso: data.blue.value_sell,
+		})
+	})
+}
 
-
-const currencys = [
-	// This array contains all currency objects
-	{ name: 'dollar', peso: 117.43, dollar: 1, euro: 0.96, real: 5.06 }, // currency object
-	{ name: 'euro', peso: 122.26, dollar: 1.04, euro: 1, real: 5.27 },
-	{ name: 'real', peso: 23.2, dollar: 0.2, euro: 0.19, real: 1 },
-	{ name: 'peso', peso: 1, dollar: 0.0085, euro: 0.0082, real: 0.043 },
-];
-
+const getCurrencyValues = () => {
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/BRL`)
+	.then(res => res.json())
+	.then(data => {
+		currencys.push({
+			name: 'real',
+			peso: data.conversion_rates.ARS,
+			dollar: data.conversion_rates.USD,
+			euro: data.conversion_rates.EUR,
+			real: 1
+		})
+	});
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/ARS`)
+	.then(res => res.json())
+	.then(data => {
+		// currencys.push({
+		// 	name: 'pesos',
+		// 	peso: 1,
+		// 	dollar: data.conversion_rates.USD,
+		// 	euro: data.conversion_rates.EUR,
+		// 	real: data.conversion_rates.BRL
+		// })
+		let name = 'pesos'
+		let	peso = 1
+		let	euro = data.conversion_rates.EUR
+		let	real = data.conversion_rates.BRL
+		correctDollar(name, peso, euro, real)
+	});
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/USD`)
+	.then(res => res.json())
+	.then(data => {
+		// currencys.push({
+		// 	name: 'dollar',
+		// 	peso: data.conversion_rates.ARS,
+		// 	dollar: 1,
+		// 	euro: data.conversion_rates.EUR,
+		// 	real: data.conversion_rates.BRL
+		// })
+		let name = 'dollar'
+		let dollar = 1
+		let euro = data.conversion_rates.EUR
+		let real = data.conversion_rates.BRL
+		lastUpdate = `Ultima actualizacion
+		${data.time_last_update_utc}`
+		correctPeso(name, dollar, euro, real)
+	});
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/EUR`)
+	.then(res => res.json())
+	.then(data => {
+		currencys.push({
+			name: 'euro',
+			peso: data.conversion_rates.ARS,
+			dollar: data.conversion_rates.USD,
+			euro: 1,
+			real: data.conversion_rates.BRL
+		})
+	});
+};
+getCurrencyValues();
+console.log(currencys);
+	
 // Rotate animation
 function refreshBtn() {
 	let rotacion = (360 / 100) * 2.5; // rotation time
 	setTimeout(() => {
 		document.getElementById('btnRefresh').classList.add('rotate');
 	}, 100);
-
+	
 	setTimeout(() => {
 		document.getElementById('btnRefresh').classList.remove('rotate');
 	}, rotacion);
@@ -53,15 +124,10 @@ function fromLeft() {
 		amount = leftInput.value;
 		secondaryCurrency = rightCurrency.value;
 		mainCurrency = leftCurrency.value;
-		// mainCurrency = currencys.find(
-		// 	(currency) => currency.name === leftCurrency.value
-		// );
-		// rate = mainCurrency[secondaryCurrency];
-		fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/${mainCurrency}`)
-		.then((res) => res.json())
-		.then((data) => {
-			convertionRate = data.conversion_rates[secondaryCurrency]
-		});
+		mainCurrency = currencys.find(
+			currency => currency.name === leftCurrency.value
+		);
+		convertionRate = mainCurrency[secondaryCurrency];
 		saveValues();
 		rightInput = document.getElementById('rightInput');
 		rightInput.value = (amount * convertionRate).toFixed(2);
@@ -72,20 +138,20 @@ function fromRight() {
 		amount = rightInput.value;
 		secondaryCurrency = leftCurrency.value;
 		mainCurrency = rightCurrency.value;
-		// mainCurrency = currencys.find(
-		// 	(currency) => currency.name === rightCurrency.value
-		// );
-		// rate = mainCurrency[secondaryCurrency];
-		fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/${mainCurrency}`)
-		.then((res) => res.json())
-		.then((data) => {
-			convertionRate = data.conversion_rates[secondaryCurrency]
-		});
+		mainCurrency = currencys.find(
+			currency => currency.name === rightCurrency.value
+		);
+		convertionRate = mainCurrency[secondaryCurrency];
 		saveValues();
 		leftInput = document.getElementById('leftInput');
 		leftInput.value = (amount * convertionRate).toFixed(2);
 	}
 }
+
+timeLastUpdate = document.getElementById('last-update');
+setTimeout(() => {
+	document.getElementById('last-update').innerText = lastUpdate.slice(0, -15);
+}, 500);
 
 // Events associated with the Select
 let leftCurrency = document.getElementById('leftCurrency');
