@@ -2,33 +2,47 @@ let amount, mainCurrency, secondaryCurrency, convertionRate, lastUpdate;
 
 const currencys = [];
 
-const correctDollar = (v6Name, v6Peso, v6Euro, v6Real) => {
+/**
+ * Take the second API data and finish filling the "currencys" empty array
+ * witth the blue value of the dollar
+ */
+const getDollarBlue = (v6Euro, v6Real) => {
 	fetch(`https://api.bluelytics.com.ar/v2/latest`)
 	.then(res => res.json())
 	.then(data => {
 		currencys.push({
-			name: v6Name,
-			peso: v6Peso,
+			name: 'blue',
+			peso: data.blue.value_sell,
 			euro: v6Euro,
 			real: v6Real,
-			dollar: 1/data.blue.value_sell
+			dollar: 1,
+			blue: 1
 		})
 	});
 };
-const correctPeso = (v6Name, v6Dollar, v6Euro, v6Real)	=>{
+/**
+ * Take the second API data and finish filling the "currencys" empty array
+ * witth the blue value of the dollar for the Argentinian Peso
+ */
+const getPeso = (v6Euro, v6Real, v6Dollar)	=>{
 	fetch(`https://api.bluelytics.com.ar/v2/latest`)
 	.then(res => res.json())
 	.then(data => {
 		currencys.push({
-			name: v6Name,
+			name: 'peso',
 			dollar: v6Dollar,
 			euro: v6Euro,
 			real: v6Real,
-			peso: data.blue.value_sell,
+			peso: 1,
+			blue: 1/data.blue.value_sell
 		})
 	})
 }
 
+/**
+ * Take the first API data and full the "currencys" empty array
+ * witth the oficial value of the currencys
+ */
 const getCurrencyValues = () => {
 	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/BRL`)
 	.then(res => res.json())
@@ -37,6 +51,7 @@ const getCurrencyValues = () => {
 			name: 'real',
 			peso: data.conversion_rates.ARS,
 			dollar: data.conversion_rates.USD,
+			blue: data.conversion_rates.USD,
 			euro: data.conversion_rates.EUR,
 			real: 1
 		})
@@ -44,36 +59,22 @@ const getCurrencyValues = () => {
 	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/ARS`)
 	.then(res => res.json())
 	.then(data => {
-		// currencys.push({
-		// 	name: 'pesos',
-		// 	peso: 1,
-		// 	dollar: data.conversion_rates.USD,
-		// 	euro: data.conversion_rates.EUR,
-		// 	real: data.conversion_rates.BRL
-		// })
-		let name = 'peso'
-		let	peso = 1
-		let	euro = data.conversion_rates.EUR
-		let	real = data.conversion_rates.BRL
-		correctDollar(name, peso, euro, real)
+		getPeso(data.conversion_rates.EUR, data.conversion_rates.BRL, data.conversion_rates.USD)
 	});
 	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/USD`)
 	.then(res => res.json())
 	.then(data => {
-		// currencys.push({
-		// 	name: 'dollar',
-		// 	peso: data.conversion_rates.ARS,
-		// 	dollar: 1,
-		// 	euro: data.conversion_rates.EUR,
-		// 	real: data.conversion_rates.BRL
-		// })
-		let name = 'dollar'
-		let dollar = 1
-		let euro = data.conversion_rates.EUR
-		let real = data.conversion_rates.BRL
+		currencys.push({
+			name: 'dollar',
+			peso: data.conversion_rates.ARS,
+			dollar: 1,
+			blue: 1,
+			euro: data.conversion_rates.EUR,
+			real: data.conversion_rates.BRL
+		})
 		lastUpdate = `Ultima actualizacion
 		${data.time_last_update_utc}`
-		correctPeso(name, dollar, euro, real)
+		getDollarBlue(data.conversion_rates.EUR, data.conversion_rates.BRL)
 	});
 	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/EUR`)
 	.then(res => res.json())
@@ -82,13 +83,13 @@ const getCurrencyValues = () => {
 			name: 'euro',
 			peso: data.conversion_rates.ARS,
 			dollar: data.conversion_rates.USD,
+			blue: data.conversion_rates.USD,
 			euro: 1,
 			real: data.conversion_rates.BRL
 		})
 	});
 };
 getCurrencyValues();
-console.log(currencys);
 	
 // Rotate animation
 function refreshBtn() {
@@ -147,7 +148,9 @@ function fromRight() {
 		leftInput.value = (amount * convertionRate).toFixed(2);
 	}
 }
-
+/**
+ * Take the first API last update data and drop into View
+ */
 timeLastUpdate = document.getElementById('last-update');
 setTimeout(() => {
 	document.getElementById('last-update').innerText = lastUpdate.slice(0, -15);
