@@ -1,4 +1,4 @@
-const Chart = require('chart.js');
+export default chart;
 
 let myCanvas = document.getElementById('blueGraph').getContext('2d');
 
