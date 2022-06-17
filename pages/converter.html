@@ -17,7 +17,7 @@
     ></script>
 
     <!-- Chart.js -->
-    <script src="Chart.js"></script>
+    <script src="../node_modules/chart.js/dist/chart.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link
@@ -54,8 +54,8 @@
         </div>
       </header>
 
-      <main class="container px-3">
-        <section class="row justify-content-between mb-5">
+      <main class="px-3">
+        <section class="converter row justify-content-between mb-5">
           <!-- Currency selection -->
           <article class="col-5 mb-5">
             <select
@@ -136,7 +136,7 @@
           </article>
         </section>
 
-        <section class="mt-5">
+        <section class="mt-5" height="100vh">
           <canvas id="blueGraph" width="400" height="300"></canvas>
         </section>
 
@@ -158,6 +158,9 @@
 	
 	<!-- Toastify -->
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <!-- Graphics JS -->
+  <script src="../scripts/graph.js"></script>
     
 	<!-- Main JS -->
 	<script src="../scripts/main.js"></script>
