@@ -1,6 +1,6 @@
 let amount, mainCurrency, secondaryCurrency, convertionRate, lastUpdate;
 
-const currencys = [];
+const Currencys = [];
 
 /**
  * Take the second API data and finish filling the "currencys" empty array
@@ -10,7 +10,7 @@ const getDollarBlue = (v6Euro, v6Real) => {
 	fetch(`https://api.bluelytics.com.ar/v2/latest`)
 	.then(res => res.json())
 	.then(data => {
-		currencys.push({
+		Currencys.push({
 			name: 'blue',
 			peso: data.blue.value_sell,
 			euro: v6Euro,
@@ -28,7 +28,7 @@ const getPeso = (v6Euro, v6Real, v6Dollar)	=>{
 	fetch(`https://api.bluelytics.com.ar/v2/latest`)
 	.then(res => res.json())
 	.then(data => {
-		currencys.push({
+		Currencys.push({
 			name: 'peso',
 			dollar: v6Dollar,
 			euro: v6Euro,
@@ -47,7 +47,7 @@ const getCurrencyValues = () => {
 	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/BRL`)
 	.then(res => res.json())
 	.then(data => {
-		currencys.push({
+		Currencys.push({
 			name: 'real',
 			peso: data.conversion_rates.ARS,
 			dollar: data.conversion_rates.USD,
@@ -64,7 +64,7 @@ const getCurrencyValues = () => {
 	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/USD`)
 	.then(res => res.json())
 	.then(data => {
-		currencys.push({
+		Currencys.push({
 			name: 'dollar',
 			peso: data.conversion_rates.ARS,
 			dollar: 1,
@@ -79,7 +79,7 @@ const getCurrencyValues = () => {
 	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/EUR`)
 	.then(res => res.json())
 	.then(data => {
-		currencys.push({
+		Currencys.push({
 			name: 'euro',
 			peso: data.conversion_rates.ARS,
 			dollar: data.conversion_rates.USD,
@@ -125,7 +125,7 @@ function fromLeft() {
 		amount = leftInput.value;
 		secondaryCurrency = rightCurrency.value;
 		mainCurrency = leftCurrency.value;
-		mainCurrency = currencys.find(
+		mainCurrency = Currencys.find(
 			currency => currency.name === leftCurrency.value
 		);
 		convertionRate = mainCurrency[secondaryCurrency];
@@ -139,7 +139,7 @@ function fromRight() {
 		amount = rightInput.value;
 		secondaryCurrency = leftCurrency.value;
 		mainCurrency = rightCurrency.value;
-		mainCurrency = currencys.find(
+		mainCurrency = Currencys.find(
 			currency => currency.name === rightCurrency.value
 		);
 		convertionRate = mainCurrency[secondaryCurrency];

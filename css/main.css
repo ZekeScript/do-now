@@ -25,9 +25,7 @@ body {
 /*
  * Header
  */
-header {
-	margin: 0 30rem 0 30rem;
-}
+
 
 .nav-masthead .nav-link {
 	padding: 0.25rem 0;
@@ -77,6 +75,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] { -moz-appearance:textfield; }
 
+input[type=date] {
+	border-radius: 4px;
+}
+input[type=date]:focus {
+	border-color: #6295e2 !important;
+	box-shadow: 0 0 5px transparent !important;
+	transition: 300ms;
+}
+
 .rotate {
 	-webkit-animation: spin 300ms ease-in-out;
 	-moz-animation: spin 300ms ease-in-out;
@@ -106,7 +113,7 @@ input[type=number] { -moz-appearance:textfield; }
 
 .graphic {
 	height: 100vh;
-	padding: 15rem 0 15rem 0;
+	align-content: center;
 }
 
 /*
