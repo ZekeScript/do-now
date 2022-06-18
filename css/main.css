@@ -15,7 +15,7 @@
  */
 body {
 	text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-	box-shadow: 0 0 5rem rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
 
 .cover-container {
@@ -25,6 +25,10 @@ body {
 /*
  * Header
  */
+header {
+	margin: 0 30rem 0 30rem;
+}
+
 .nav-masthead .nav-link {
 	padding: 0.25rem 0;
 	font-weight: 700;
@@ -52,6 +56,11 @@ body {
  */
 .text-currency {
 	color: #6295e2;
+}
+
+.converter {
+	height: 100vh;
+	padding: 15rem 0 15rem 0;
 }
 
 .form-control:focus {
@@ -95,9 +104,9 @@ input[type=number] { -moz-appearance:textfield; }
 	}
 }
 
-.converter{
-	margin-top: 100px;
+.graphic {
 	height: 100vh;
+	padding: 15rem 0 15rem 0;
 }
 
 /*

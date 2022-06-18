@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,11 +28,11 @@
     <!-- Custom styles -->
     <link href="../css/main.css" rel="stylesheet" />
   </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <body class="d-flex text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
 
       <!-- Navbar -->
-      <header class="mb-auto">
+      <header class="mb-auto fixed-top p-3">
         <div>
           <h3 class="float-md-start mb-0">
             <a
@@ -54,10 +54,10 @@
         </div>
       </header>
 
-      <main class="px-3">
-        <section class="converter row justify-content-between mb-5">
-          <!-- Currency selection -->
-          <article class="col-5 mb-5">
+      <main class="container px-3">
+        <!-- Currency selection -->
+        <section class="converter row justify-content-between">
+          <article class="col-5">
             <select
               id="leftCurrency"
               class="form-select bg-dark text-currency"
@@ -71,10 +71,10 @@
               <option value="real">Real</option>
             </select>
           </article>
-          <article id="btnRefresh" class="col-1 change btnRefreshClass mb-5">
+          <article id="btnRefresh" class="col-1 change btnRefreshClass">
             <i id="cross" class="fa-solid fa-arrow-right-arrow-left fa-xl"></i>
           </article>
-          <article class="col-5 mb-5">
+          <article class="col-5">
             <select
               id="rightCurrency"
               class="form-select bg-dark text-currency"
@@ -90,30 +90,32 @@
           </article>
           
           <!-- Amount -->
-          <article class="form-floating col-5">
-            <input
-              id="leftInput"
-              type="number"
-              class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
-              value="0"
-              min="0"
-              title=""
-            />
-            <label id="labelLeft" for="leftInput">Amount</label>
-          </article>
-          <article class="col-1">
-            <h1>=</h1>
-          </article>
-          <article class="form-floating col-5">
-            <input
-              id="rightInput"
-              type="number"
-              class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
-              value="0"
-              min="0"
-              title=""
-            />
-            <label id="labelRight" for="rightInput">Amount</label>
+          <article class="row justify-content-between">
+            <div class="form-floating col-5">
+              <input
+                id="leftInput"
+                type="number"
+                class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+                value="0"
+                min="0"
+                title=""
+              />
+              <label id="labelLeft" for="leftInput">Amount</label>
+            </div>
+            <div class="col-1">
+              <h1>=</h1>
+            </div>
+            <div class="form-floating col-5">
+              <input
+                id="rightInput"
+                type="number"
+                class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+                value="0"
+                min="0"
+                title=""
+              />
+              <label id="labelRight" for="rightInput">Amount</label>
+            </div>
           </article>
 
           <!-- Reset button -->
@@ -136,13 +138,14 @@
           </article>
         </section>
 
-        <section class="mt-5" height="100vh">
+        <!-- Graphic -->
+        <section class="graphic">
           <canvas id="blueGraph" width="400" height="300"></canvas>
         </section>
 
       </main>
 
-      <footer class="mt-auto text-white-50">
+      <footer class="text-white-50">
         <p>
           By
           <a
@@ -158,11 +161,11 @@
 	
 	<!-- Toastify -->
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
+  
+	<!-- Convert JS -->
+	<script src="../scripts/convert.js"></script>
+  
   <!-- Graphics JS -->
   <script src="../scripts/graph.js"></script>
-    
-	<!-- Main JS -->
-	<script src="../scripts/main.js"></script>
   </body>
 </html>
