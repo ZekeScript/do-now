@@ -4,7 +4,6 @@ function getChart() {
     const res = await fetch(url);
     // wait until the request has been completed
     const datapoints = await res.json();
-    console.log(datapoints);
     return datapoints;
   }
   
@@ -20,8 +19,6 @@ function getChart() {
       }
     });
 
-    console.log(date);
-    console.log(value);
     myChart.config.data.labels = date;
     myChart.config.data.datasets[0].data = value;
     myChart.update();
@@ -31,11 +28,11 @@ getChart();
 
 // setup
 const data = {
-  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  labels: [],
   datasets: [
     {
-      label: "Blue dollar evolution",
-      data: [18, 12, 6, 9, 12, 3, 9],
+      label: "Blue dollar",
+      data: [],
       backgroundColor: [
         "rgba(54, 162, 235, 0.2)",
       ],
@@ -62,3 +59,12 @@ const config = {
 
 // render init block
 const myChart = new Chart(document.getElementById("blueGraph"), config);
+
+function graphicFromDate(date) {
+  let today = new Date.getTime();
+  let fromDate = date;
+  console.log((today - fromDate)/(1000*60*60*24));
+}
+
+const getFromDateInput = document.getElementById('from-date');
+getFromDateInput.onchange = () => graphicFromDate(getFromDateInput.value);

@@ -57,93 +57,95 @@
         </div>
       </header>
 
-      <main class="px-3">
+      <main class="d-flex row px-3">
         <!-- Currency selection -->
-        <section class="converter">
-          <article class="row justify-content-between mb-5">
-            <div class="col-5">
-              <select
-                id="leftCurrency"
-                class="form-select bg-dark text-currency"
-                aria-label="Default select example"
-              >
-                <option value="" selected disabled hidden>Choose here</option>
-                <option value="dollar">Dollar</option>
-                <option value="blue">Dollar blue</option>
-                <option value="euro">Euro</option>
-                <option value="peso">Peso</option>
-                <option value="real">Real</option>
-              </select>
-            </div>
-            <div id="btnRefresh" class="col-1 change btnRefreshClass">
-              <i
-                id="cross"
-                class="fa-solid fa-arrow-right-arrow-left fa-xl"
-              ></i>
-            </div>
-            <div class="col-5">
-              <select
-                id="rightCurrency"
-                class="form-select bg-dark text-currency"
-                aria-label="Default select example"
-              >
-                <option value="" selected disabled hidden>Choose here</option>
-                <option value="dollar">Dollar</option>
-                <option value="blue">Dollar blue</option>
-                <option value="euro">Euro</option>
-                <option value="peso">Peso</option>
-                <option value="real">Real</option>
-              </select>
-            </div>
-          </article>
-
-          <!-- Amount -->
-          <article class="row justify-content-between">
-            <div class="form-floating col-5">
-              <input
-                id="leftInput"
-                type="number"
-                class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
-                value="0"
-                min="0"
-                title=""
-              />
-              <label id="labelLeft" for="leftInput">Amount</label>
-            </div>
-            <div class="col-1">
-              <h1>=</h1>
-            </div>
-            <div class="form-floating col-5">
-              <input
-                id="rightInput"
-                type="number"
-                class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
-                value="0"
-                min="0"
-                title=""
-              />
-              <label id="labelRight" for="rightInput">Amount</label>
-            </div>
-          </article>
-
-          <!-- Reset button -->
-          <article class="d-flex mt-5 justify-content-center">
-            <p class="lead me-5">
-              <a class="btn btn-outline-light" id="clean"
-                ><i class="fa-solid fa-trash"></i
-              ></a>
-            </p>
-            <p class="lead">
-              <a id="lastConvertion" class="btn btn-outline-light"
-                ><i class="fa-solid fa-arrow-rotate-left"></i
-              ></a>
-            </p>
-          </article>
-
-          <!-- Last update -->
-          <article class="mt-4 justify-content-center">
-            <p id="last-update" class="mt-auto text-white-50"></p>
-          </article>
+        <section class="d-flex row converter">
+          <div>
+            <article class="row justify-content-between mb-5">
+              <div class="col-5">
+                <select
+                  id="leftCurrency"
+                  class="form-select bg-dark text-currency"
+                  aria-label="Default select example"
+                >
+                  <option value="" selected disabled hidden>Choose here</option>
+                  <option value="dollar">Dollar</option>
+                  <option value="blue">Dollar blue</option>
+                  <option value="euro">Euro</option>
+                  <option value="peso">Peso</option>
+                  <option value="real">Real</option>
+                </select>
+              </div>
+              <div id="btnRefresh" class="col-1 change btnRefreshClass">
+                <i
+                  id="cross"
+                  class="fa-solid fa-arrow-right-arrow-left fa-xl"
+                ></i>
+              </div>
+              <div class="col-5">
+                <select
+                  id="rightCurrency"
+                  class="form-select bg-dark text-currency"
+                  aria-label="Default select example"
+                >
+                  <option value="" selected disabled hidden>Choose here</option>
+                  <option value="dollar">Dollar</option>
+                  <option value="blue">Dollar blue</option>
+                  <option value="euro">Euro</option>
+                  <option value="peso">Peso</option>
+                  <option value="real">Real</option>
+                </select>
+              </div>
+            </article>
+  
+            <!-- Amount -->
+            <article class="row justify-content-between">
+              <div class="form-floating col-5">
+                <input
+                  id="leftInput"
+                  type="number"
+                  class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+                  value="0"
+                  min="0"
+                  title=""
+                />
+                <label id="labelLeft" for="leftInput">Amount</label>
+              </div>
+              <div class="col-1">
+                <h1>=</h1>
+              </div>
+              <div class="form-floating col-5">
+                <input
+                  id="rightInput"
+                  type="number"
+                  class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+                  value="0"
+                  min="0"
+                  title=""
+                />
+                <label id="labelRight" for="rightInput">Amount</label>
+              </div>
+            </article>
+  
+            <!-- Reset button -->
+            <article class="d-flex mt-5 justify-content-center">
+              <p class="lead me-5">
+                <a class="btn btn-outline-light" id="clean"
+                  ><i class="fa-solid fa-trash"></i
+                ></a>
+              </p>
+              <p class="lead">
+                <a id="lastConvertion" class="btn btn-outline-light"
+                  ><i class="fa-solid fa-arrow-rotate-left"></i
+                ></a>
+              </p>
+            </article>
+  
+            <!-- Last update -->
+            <article class="mt-4 justify-content-center">
+              <p id="last-update" class="mt-auto text-white-50"></p>
+            </article>
+          </div>
         </section>
 
         <!-- Graphic -->

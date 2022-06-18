@@ -36,8 +36,8 @@ const getPeso = (v6Euro, v6Real, v6Dollar)	=>{
 			peso: 1,
 			blue: 1/data.blue.value_sell
 		})
-	})
-}
+	});
+};
 
 /**
  * Take the first API data and full the "currencys" empty array
@@ -101,7 +101,7 @@ function refreshBtn() {
 	setTimeout(() => {
 		document.getElementById('btnRefresh').classList.remove('rotate');
 	}, rotacion);
-}
+};
 
 /**
  * Take the values of both currencies and the convertion amoun
@@ -111,7 +111,7 @@ function saveValues() {
 	localStorage.setItem('mainCurrency', JSON.stringify(mainCurrency));
 	localStorage.setItem('secondaryCurrency', secondaryCurrency);
 	localStorage.setItem('amount', amount);
-}
+};
 
 /**
  * Both functions (fromLef and fromRight) do the calculations for the conversion
@@ -132,8 +132,8 @@ function fromLeft() {
 		saveValues();
 		rightInput = document.getElementById('rightInput');
 		rightInput.value = (amount * convertionRate).toFixed(2);
-	}
-}
+	};
+};
 function fromRight() {
 	if (leftCurrency.value != '' && rightCurrency.value != '') {
 		amount = rightInput.value;
@@ -146,8 +146,8 @@ function fromRight() {
 		saveValues();
 		leftInput = document.getElementById('leftInput');
 		leftInput.value = (amount * convertionRate).toFixed(2);
-	}
-}
+	};
+};
 /**
  * Take the first API last update data and drop into View
  */
@@ -190,7 +190,7 @@ lastConvertion.onclick = () => {
 			text: 'No convertion yet!',
 			duration: 3000
 		}).showToast();
-	}
+	};
 };
 
 // Event to cross the currencies
@@ -211,7 +211,7 @@ crossBtn.onclick = () => {
 			text: 'Select both currencies!',
 			duration: 3000
 		}).showToast();
-	}
+	};
 };
 
 // Cleanup event
