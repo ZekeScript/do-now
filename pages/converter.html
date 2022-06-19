@@ -127,7 +127,7 @@
               </div>
             </article>
 
-            <!-- Reset button -->
+            <!-- Buttons -->
             <article class="d-flex mt-5 justify-content-center">
               <p class="lead me-5">
                 <a class="btn btn-outline-light" id="clean"
@@ -150,12 +150,29 @@
 
         <!-- Graphic -->
         <section class="graphic">
+          <h1 class="mb-5">Blue Dollar Evolution</h1>
           <article>
             <canvas id="blueGraph" width="400" height="300"></canvas>
           </article>
-          <article class="d-flex justify-content-center mt-4">
-            <label class="pe-4" for="from-date">From:</label>
-            <input type="date" class="bg-dark text-currency" min="2011-01-03" value="2011-01-03" name="From" id="from-date">
+          <article class="d-flex justify-content-evenly mt-4">
+            <button class="btn btn-outline-light btn-sm" id="5DButton">
+              5D
+            </button>
+            <button class="btn btn-outline-light btn-sm" id="1MButton">
+              1M
+            </button>
+            <button class="btn btn-outline-light btn-sm" id="6MButton">
+              6M
+            </button>
+            <button class="btn btn-outline-light btn-sm" id="1YButton">
+              1Y
+            </button>
+            <button class="btn btn-outline-light btn-sm" id="5YButton">
+              5Y
+            </button>
+            <button class="btn btn-outline-light btn-sm" id="MaxButton">
+              Máx
+            </button>
           </article>
         </section>
       </main>
