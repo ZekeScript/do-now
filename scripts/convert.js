@@ -45,7 +45,7 @@ const getPeso = (v6Euro, v6Real, v6Dollar) => {
  */
 const getCurrencyValues = () => {
   fetch(
-    `https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/BRL`
+    `https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/BRL`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -59,7 +59,7 @@ const getCurrencyValues = () => {
       });
     });
   fetch(
-    `https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/ARS`
+    `https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/ARS`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -70,7 +70,7 @@ const getCurrencyValues = () => {
       );
     });
   fetch(
-    `https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/USD`
+    `https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/USD`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -87,7 +87,7 @@ const getCurrencyValues = () => {
       getDollarBlue(data.conversion_rates.EUR, data.conversion_rates.BRL);
     });
   fetch(
-    `https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/EUR`
+    `https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/EUR`
   )
     .then((res) => res.json())
     .then((data) => {
