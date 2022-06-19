@@ -33,6 +33,7 @@ const config = {
 // render / init block
 const myChart = new Chart(document.getElementById("blueGraph"), config);
 
+// Get the historical value from the API
 function getChart() {
   async function fetchdata() {
     const url = "https://api.bluelytics.com.ar/v2/evolution.json";
@@ -42,6 +43,8 @@ function getChart() {
     return datapoints;
   }
 
+  // Render the values if the labels (dates) on the graph
+  // and the values of the blue dollar and the oficial dollar
   fetchdata().then((datapoints) => {
     const date = datapoints
       .slice(0)
@@ -75,6 +78,8 @@ function getChart() {
   });
 }
 
+// Get the historical values from TODAY to DAYS
+// by function parameter
 function getChartInterval(days) {
   async function fetchdata() {
     const url = `https://api.bluelytics.com.ar/v2/evolution.json?days=${days}`;
@@ -84,6 +89,8 @@ function getChartInterval(days) {
     return datapoints;
   }
 
+  // Render the values if the labels (dates) on the graph
+  // and the values of the blue dollar and the oficial dollar
   fetchdata().then((datapoints) => {
     const date = datapoints
       .slice(0)
@@ -117,6 +124,7 @@ function getChartInterval(days) {
   });
 }
 
+// listener block
 const listenToMaxButton = document.getElementById("MaxButton");
 listenToMaxButton.onclick = () => getChart();
 
