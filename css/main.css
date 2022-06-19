@@ -55,6 +55,10 @@ body {
   color: #6295e2;
 }
 
+.tiny-font {
+  font-size: 1rem;
+}
+
 .converter {
   height: 95vh;
   align-items: center;
@@ -110,6 +114,12 @@ input[type="date"]:focus {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+aside {
+  display: inline-flex;
+  top: 10rem !important;
+  left: -90vw !important;
 }
 
 .graphic {
