@@ -1,5 +1,5 @@
 # shiny-fiesta
-JavaScript proyect
+Currency converter
 
 The main idea fot this projet is develop a currency converter.
 
