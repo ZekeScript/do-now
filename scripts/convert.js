@@ -90,7 +90,7 @@ const getCurrencyValues = () => {
 	});
 };
 getCurrencyValues();
-	
+
 // Rotate animation
 function refreshBtn() {
 	let rotacion = (360 / 100) * 2.5; // rotation time

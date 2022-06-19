@@ -1,32 +1,5 @@
-function getChart() {
-  async function fetchdata() {
-    const url = "https://api.bluelytics.com.ar/v2/evolution.json";
-    const res = await fetch(url);
-    // wait until the request has been completed
-    const datapoints = await res.json();
-    return datapoints;
-  }
-  
-  fetchdata().then((datapoints) => {
-    const date = datapoints.slice(0).reverse().map(function (index) {
-      if (index.source == "Blue") {
-        return index.date;
-      }
-    });
-    const value = datapoints.slice(0).reverse().map(function (index) {
-      if (index.source == "Blue") {
-        return index.value_sell;
-      }
-    });
 
-    myChart.config.data.labels = date;
-    myChart.config.data.datasets[0].data = value;
-    myChart.update();
-  });
-}
-getChart();
-
-// setup
+// setup block
 const data = {
   labels: [],
   datasets: [
@@ -44,7 +17,7 @@ const data = {
   ],
 };
 
-// config
+// config block
 const config = {
   type: "line",
   data,
@@ -57,11 +30,41 @@ const config = {
   },
 };
 
-// render init block
+// render / init block
 const myChart = new Chart(document.getElementById("blueGraph"), config);
 
+function getChart() {
+  async function fetchdata() {
+    const url = "https://api.bluelytics.com.ar/v2/evolution.json";
+    const res = await fetch(url);
+    // wait until the request has been completed
+    const datapoints = await res.json();
+    return datapoints;
+  };
+
+  fetchdata().then((datapoints) => {
+    const date = datapoints.slice(0).reverse().map(function (index) {
+      if (index.source == "Blue") {
+        return index.date;
+      }
+    });
+
+    const value = datapoints.slice(0).reverse().map(function (index) {
+      if (index.source == "Blue") {
+        return index.value_sell;
+      }
+    });
+
+    myChart.config.data.labels = date;
+    myChart.config.data.datasets[0].data = value;
+    myChart.update();
+  });
+};
+getChart();
+
+
 function graphicFromDate(date) {
-  let today = new Date.getTime();
+  let today = new Date().getTime();
   let fromDate = date;
   console.log((today - fromDate)/(1000*60*60*24));
 }
