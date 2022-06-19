@@ -273,7 +273,18 @@ FakesAssemblies/
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
-node_modules/
+node_modules/chart.js/auto
+node_modules/chart.js/helpers
+node_modules/chart.js/types
+node_modules/chart.js/LICENSE.md
+node_modules/chart.js/package.json
+node_modules/chart.js/README.md
+node_modules/chart.js/dist/chunks
+node_modules/chart.js/dist/chart.esm.js
+node_modules/chart.js/dist/chart.min.js
+node_modules/chart.js/dist/helpers.esm.js
+node_modules/luxon
+node_modules/.package-lock.json
 
 # Visual Studio 6 build log
 *.plg
