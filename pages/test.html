@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <title>doNow</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+
+    <!-- Toastify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a1c904b53d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Chart.js -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="../bootstrap-local/assets/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles -->
+    <link href="../css/main.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header class="d-flex">
+      <section>
+        <h3>
+          <a
+            id="logo"
+            class="text-decoration-none text-light"
+            href="../index.html"
+            >doNow</a
+          >
+        </h3>
+      </section>
+      <section>
+        <nav class="d-flex">
+          <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+          <a class="nav-link disabled active" href="./converter.html"
+            >Converter</a
+          >
+        </nav>
+      </section>
+    </header>
+
+    <main>
+      <section>
+        <!-- Currency selection -->
+        <article>
+          <div>
+            <select
+              id="leftCurrency"
+              class="form-select bg-dark text-currency"
+              aria-label="Default select example"
+            >
+              <option value="" selected disabled hidden>Choose here</option>
+              <option value="dollar">Dollar</option>
+              <option value="blue">Dollar blue</option>
+              <option value="euro">Euro</option>
+              <option value="peso">Peso</option>
+              <option value="real">Real</option>
+            </select>
+          </div>
+          <div>
+            <i id="cross" class="fa-solid fa-arrow-right-arrow-left fa-xl"></i>
+          </div>
+          <div>
+            <select
+              id="rightCurrency"
+              class="form-select bg-dark text-currency"
+              aria-label="Default select example"
+            >
+              <option value="" selected disabled hidden>Choose here</option>
+              <option value="dollar">Dollar</option>
+              <option value="blue">Dollar blue</option>
+              <option value="euro">Euro</option>
+              <option value="peso">Peso</option>
+              <option value="real">Real</option>
+            </select>
+          </div>
+        </article>
+
+        <!-- Amount -->
+        <article>
+          <div class="form-floating mb-3">
+            <input
+              id="leftInput"
+              type="number"
+              class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+              value="0"
+              min="0"
+              title=""
+            />
+            <label id="labelLeft" for="leftInput">Amount</label>
+          </div>
+          <div><h1>=</h1></div>
+          <div class="form-floating mb-3">
+            <input
+              id="rightInput"
+              type="number"
+              class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+              value="0"
+              min="0"
+              title=""
+            />
+            <label id="labelRight" for="rightInput">Amount</label>
+          </div>
+        </article>
+
+        <!-- Buttons -->
+        <article>
+          <button type="button" class="btn btn-outline-light">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button type="button" class="btn btn-outline-light">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+          </button>
+        </article>
+
+        <!-- Last update -->
+        <article>
+          <p id="last-update" class="mt-auto text-white-50"></p>
+        </article>
+      </section>
+
+      <!-- Rate -->
+      <section></section>
+
+      <!-- Graphic -->
+      <section>
+        <h1 class="mb-5">Blue Dollar Evolution</h1>
+        <article>
+          <canvas id="blueGraph" width="400" height="300"></canvas>
+        </article>
+
+        <!-- Time intervals -->
+        <article>
+          <button class="btn btn-outline-light btn-sm" id="5DButton">5D</button>
+          <button class="btn btn-outline-light btn-sm" id="1MButton">1M</button>
+          <button class="btn btn-outline-light btn-sm" id="6MButton">6M</button>
+          <button class="btn btn-outline-light btn-sm" id="1YButton">1Y</button>
+          <button class="btn btn-outline-light btn-sm" id="5YButton">5Y</button>
+          <button class="btn btn-outline-light btn-sm" id="MaxButton">
+            Máx
+          </button>
+        </article>
+      </section>
+    </main>
+
+    <!-- Footer bar -->
+    <footer>
+      <p>
+        By
+        <a
+          href="https://github.com/ezEst6"
+          class="text-white text-decoration-none"
+          >@EzEst</a
+        >.
+      </p>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="../bootstrap-local/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Toastify -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <!-- Convert JS -->
+    <!-- <script src="../scripts/convert.js"></script> -->
+
+    <!-- Graphics JS -->
+    <script src="../scripts/graph.js"></script>
+  </body>
+</html>

@@ -19,7 +19,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 57em;
 }
 
 /*
@@ -113,7 +113,7 @@ input[type="date"]:focus {
 }
 
 .graphic {
-  height: 85vh;
+  height: 95vh;
   align-items: center;
 }
 
