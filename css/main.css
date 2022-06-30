@@ -1,7 +1,9 @@
 /*
  * Globals
  */
-
+*{
+  border: solid red;
+}
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
