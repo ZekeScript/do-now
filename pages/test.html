@@ -66,7 +66,7 @@
 
 		<main>
 			<section
-				class="d-flex container flex-column full-view justify-content-center p-5"
+				class="d-flex w-50 container flex-column full-view justify-content-center p-5"
 			>
 				<!-- Currency selection -->
 				<article class="mb-5 d-flex flex-row">
@@ -156,10 +156,35 @@
 			</section>
 
 			<!-- Rate -->
-			<section></section>
+			<section class="dollar-card container sticky-sm-top ms-5 top-50">
+				<div
+					class="card mb-3 text-center position-absolute"
+					style="max-width: 11rem"
+				>
+					<div class="card-header text-light">
+						<div class="d-flex justify-content-center m-auto">
+              <i id="caret" class="fa-solid fa-caret-up me-2"></i>
+              <i id="caret" class="fa-solid fa-caret-down me-2 visually-hidden"></i>
+              <p class="">%</p>
+            </div>
+						<p class="m-auto">BLUE DOLLAR</p>
+					</div>
+					<div class="d-flex card-body bg-dark">
+						<p class="card-text text-light mx-auto me-2">
+							Buy <br> 270.50
+						</p>
+            <div class="vr"></div>
+            <p class="card-text text-light mx-auto ms-2">
+							Sell <br> 270.50
+						</p>
+					</div>
+				</div>
+			</section>
 
 			<!-- Graphic -->
-			<section class="d-flex flex-column container full-view justify-content-center">
+			<section
+				class="d-flex flex-column container full-view justify-content-center"
+			>
 				<h2 class="mb-5">Blue Dollar Evolution</h2>
 				<article>
 					<canvas id="blueGraph" width="400" height="200"></canvas>

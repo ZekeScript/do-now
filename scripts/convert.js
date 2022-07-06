@@ -82,7 +82,7 @@ const getCurrencyValues = () => {
         euro: data.conversion_rates.EUR,
         real: data.conversion_rates.BRL,
       });
-      lastUpdate = `Ultima actualizacion
+      lastUpdate = `Last update
 		${data.time_last_update_utc}`;
       getDollarBlue(data.conversion_rates.EUR, data.conversion_rates.BRL);
     });

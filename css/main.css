@@ -52,7 +52,32 @@ body {
 }
 
 .full-view {
-	height: 91vh;
+	height: 90vh;
+}
+
+.dollar-card {
+  margin-top: -30vh;
+  margin-bottom: 30vh;
+}
+
+.dollar-card > div {
+  border-color: #2956b2;
+}
+
+.card-header {
+  background-color: #2956b2;
+}
+
+.card-header .fa-solid {
+  font-size:xx-large;
+}
+
+.fa-caret-up {
+  color: #7dbd00;
+}
+
+.fa-caret-down {
+  color: #D34734;
 }
 
 .form-control:focus {
