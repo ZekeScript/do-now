@@ -156,26 +156,38 @@
 			</section>
 
 			<!-- Rate -->
-			<section class="dollar-card container sticky-sm-top ms-5 top-50">
-				<div
-					class="card mb-3 text-center position-absolute"
-					style="max-width: 11rem"
-				>
-					<div class="card-header text-light">
-						<div class="d-flex justify-content-center m-auto">
-              <i id="caret" class="fa-solid fa-caret-up me-2"></i>
-              <i id="caret" class="fa-solid fa-caret-down me-2 visually-hidden"></i>
-              <p class="">%</p>
-            </div>
-						<p class="m-auto">BLUE DOLLAR</p>
+			<section class="dollar-card container sticky-top ms-sm-5">
+				<div class="card text-center position-absolute">
+					<div
+						id="card-header"
+						class="d-flex flex-column card-header text-light"
+					>
+						<div class="m-auto d-flex justify-content-center">
+							<i
+								id="caret"
+								class="fa-solid fa-caret-up me-1 align-self-center m-auto fs-4"
+							></i>
+							<i
+								id="caret"
+								class="fa-solid fa-caret-down me-1 align-self-center m-auto fs-4 visually-hidden"
+							></i>
+							<p id="rate-value" class="m-auto fs-6"></p>
+							<p class="m-auto fs-6">%</p>
+						</div>
+						<p class="m-auto fs-6">BLUE DOLLAR</p>
 					</div>
-					<div class="d-flex card-body bg-dark">
-						<p class="card-text text-light mx-auto me-2">
-							Buy <br> 270.50
+					<div
+						id="card-body"
+						class="d-flex card-text card-body bg-dark m-auto visually-hidden"
+					>
+						<p class="text-light m-auto fs-6">
+							Buy <br />
+							<span id="value-buy"> 270.50 </span>
 						</p>
-            <div class="vr"></div>
-            <p class="card-text text-light mx-auto ms-2">
-							Sell <br> 270.50
+						<div class="vr me-2 ms-2"></div>
+						<p class="text-light m-auto fs-6">
+							Sell <br />
+							<span id="value-sell"> 270.50 </span>
 						</p>
 					</div>
 				</div>
@@ -225,6 +237,9 @@
 
 		<!-- Convert JS -->
 		<!-- <script src="../scripts/convert.js"></script> -->
+
+		<!-- Rate -->
+		<script src="../scripts/rateValue.js"></script>
 
 		<!-- Graphics JS -->
 		<script src="../scripts/graph.js"></script>

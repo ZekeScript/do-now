@@ -56,28 +56,25 @@ body {
 }
 
 .dollar-card {
-  margin-top: -30vh;
-  margin-bottom: 30vh;
+	margin-top: -20vh;
+	margin-bottom: 20vh;
+	top: 25vh;
 }
 
 .dollar-card > div {
-  border-color: #2956b2;
+	border-color: #2956b2;
 }
 
 .card-header {
-  background-color: #2956b2;
-}
-
-.card-header .fa-solid {
-  font-size:xx-large;
+	background-color: #2956b2;
 }
 
 .fa-caret-up {
-  color: #7dbd00;
+	color: #7dbd00;
 }
 
 .fa-caret-down {
-  color: #D34734;
+	color: #d34734;
 }
 
 .form-control:focus {
