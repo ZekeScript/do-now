@@ -32,13 +32,12 @@ setTimeout(() => {
 	let rate_value = document.getElementById('rate-value');
 	let value_sell = document.getElementById('value-sell');
 	let value_buy = document.getElementById('value-buy');
-	let rate_icon = document.getElementById('caret');
 	rate_value.innerText = rate;
 	value_buy.innerText = lastValue.value_buy;
 	value_sell.innerText = lastValue.value_sell;
 	Number(rate) === 0
-		? rate_icon.classList.add('fa-arrow-down-up-across-line')
+		? document.getElementById('caret').classList.add('fa-arrow-down-up-across-line')
 		: Number(rate) < 0
-		? rate_icon.classList.add('fa-caret-down')
-		: rate_icon.classList.add('fa-caret-up');
+		? document.getElementById('caret').classList.add('fa-caret-down')
+		: document.getElementById('caret').classList.add('fa-caret-up');
 }, 255);
