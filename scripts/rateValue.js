@@ -16,8 +16,6 @@ function changeRate() {
 	return ((beforeLastValue.value_sell * 100) / lastValue.value_sell - 100).toFixed(2);
 }
 
-let rate = changeRate();
-
 function removeClass() {
 	document.getElementById('card-body').classList.remove('visually-hidden');
 }
@@ -26,8 +24,21 @@ function addClass() {
 }
 
 let card_header = document.getElementById('card-header');
-card_header.onmouseenter = () => removeClass();
+card_header.onmouseover = () => removeClass();
 card_header.onmouseleave = () => addClass();
 
-let rate_value = document.getElementById('rate-value');
-rate_value.innerText = rate;
+setTimeout(() => {
+	let rate = changeRate();
+	let rate_value = document.getElementById('rate-value');
+	let value_sell = document.getElementById('value-sell');
+	let value_buy = document.getElementById('value-buy');
+	let rate_icon = document.getElementById('caret');
+	rate_value.innerText = rate;
+	value_buy.innerText = lastValue.value_buy;
+	value_sell.innerText = lastValue.value_sell;
+	Number(rate) === 0
+		? rate_icon.classList.add('fa-arrow-down-up-across-line')
+		: Number(rate) < 0
+		? rate_icon.classList.add('fa-caret-down')
+		: rate_icon.classList.add('fa-caret-up');
+}, 255);
