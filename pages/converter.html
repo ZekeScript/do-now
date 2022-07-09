@@ -1,212 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <title>doNow</title>
-    <link rel="shortcut icon" href="../images/favicon.ico" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="esto es " />
+		<title>doNow</title>
+		<link rel="shortcut icon" href="../images/favicon.ico" />
 
-    <!-- Toastify -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
+		<!-- Toastify -->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+		/>
 
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/a1c904b53d.js"
-      crossorigin="anonymous"
-    ></script>
+		<!-- Font Awesome -->
+		<script
+			src="https://kit.fontawesome.com/a1c904b53d.js"
+			crossorigin="anonymous"
+		></script>
 
-    <!-- Chart.js -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/chart.js"
-    ></script>
+		<!-- Chart.js -->
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/chart.js"
+		></script>
 
-    <!-- Bootstrap core CSS -->
-    <link
-      href="../bootstrap-local/assets/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+		<!-- Bootstrap core CSS -->
+		<link
+			href="../bootstrap-local/assets/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
 
-    <!-- Custom styles -->
-    <link href="../css/main.css" rel="stylesheet" />
-  </head>
-  <body class="d-flex text-center text-white bg-dark">
-    <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
-      <!-- Navbar -->
-      <header class="mb-auto sticky-top">
-        <div>
-          <h3 class="float-md-start mb-0">
-            <a
-              id="logo"
-              class="text-decoration-none text-light"
-              href="../index.html"
-              >doNow</a
-            >
-          </h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link" aria-current="page" href="../index.html"
-              >Home</a
-            >
-            <a class="nav-link disabled active" href="./converter.html"
-              >Converter</a
-            >
-            <!-- <a class="nav-link" href="#">Contact</a> -->
-          </nav>
-        </div>
-      </header>
+		<!-- Custom styles -->
+		<link href="../css/main.css" rel="stylesheet" />
+	</head>
 
-      <main class="d-flex row px-3">
-        <!-- Currency selection -->
-        <section class="d-flex row converter">
-          <div>
-            <article class="row justify-content-between mb-5">
-              <div class="col-5">
-                <select
-                  id="leftCurrency"
-                  class="form-select bg-dark text-currency"
-                  aria-label="Default select example"
-                >
-                  <option value="" selected disabled hidden>Choose here</option>
-                  <option value="dollar">Dollar</option>
-                  <option value="blue">Dollar blue</option>
-                  <option value="euro">Euro</option>
-                  <option value="peso">Peso</option>
-                  <option value="real">Real</option>
-                </select>
-              </div>
-              <div id="btnRefresh" class="col-1 change btnRefreshClass">
-                <i
-                  id="cross"
-                  class="fa-solid fa-arrow-right-arrow-left fa-xl"
-                ></i>
-              </div>
-              <div class="col-5">
-                <select
-                  id="rightCurrency"
-                  class="form-select bg-dark text-currency"
-                  aria-label="Default select example"
-                >
-                  <option value="" selected disabled hidden>Choose here</option>
-                  <option value="dollar">Dollar</option>
-                  <option value="blue">Dollar blue</option>
-                  <option value="euro">Euro</option>
-                  <option value="peso">Peso</option>
-                  <option value="real">Real</option>
-                </select>
-              </div>
-            </article>
+	<body class="h-100 text-white bg-dark">
+		<!-- Navbar -->
+		<header
+			class="d-flex w-100 h-100 p-3 mx-auto container sticky-top justify-content-evenly row"
+		>
+			<section class="col-sm align-self-center justify-text-center">
+				<h2 class="d-flex justify-content-center float-md-start mb-0">
+					<a
+						id="logo"
+						class="text-decoration-none text-light"
+						href="../index.html"
+						>doNow</a
+					>
+				</h2>
+			</section>
+			<section class="col-sm align-self-center justify-text-center">
+				<nav class="nav nav-masthead justify-content-center float-md-end">
+					<a class="nav-link fw-bold py-1 px-0" href="../index.html">Home</a>
+					<a
+						class="nav-link fw-bold py-1 px-0 disabled active"
+						aria-current="page"
+						href="./converter.html"
+						>Converter</a
+					>
+				</nav>
+			</section>
+		</header>
 
-            <!-- Amount -->
-            <article class="row justify-content-between">
-              <div class="form-floating col-5">
-                <input
-                  id="leftInput"
-                  type="number"
-                  class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
-                  value="0"
-                  min="0"
-                  title=""
-                />
-                <label id="labelLeft" for="leftInput">Amount</label>
-              </div>
-              <div class="col-1">
-                <h1>=</h1>
-              </div>
-              <div class="form-floating col-5">
-                <input
-                  id="rightInput"
-                  type="number"
-                  class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
-                  value="0"
-                  min="0"
-                  title=""
-                />
-                <label id="labelRight" for="rightInput">Amount</label>
-              </div>
-            </article>
+		<main>
+			<!-- Converter -->
+			<section
+				class="d-flex w-50 container flex-column full-view justify-content-center p-5"
+			>
+				<!-- Currency selection -->
+				<article class="mb-5 d-flex flex-row">
+					<div class="w-100">
+						<select
+							id="leftCurrency"
+							class="form-select bg-dark text-currency"
+							aria-label="Default select example"
+						>
+							<option value="" selected disabled hidden>Choose here</option>
+							<option value="dollar">Dollar</option>
+							<option value="blue">Dollar blue</option>
+							<option value="euro">Euro</option>
+							<option value="peso">Peso</option>
+							<option value="real">Real</option>
+						</select>
+					</div>
+					<div class="w-25 my-auto d-flex justify-content-center">
+						<i
+							id="cross"
+							class="fa-solid fa-arrow-right-arrow-left fa-xl"
+						></i>
+					</div>
+					<div class="w-100">
+						<select
+							id="rightCurrency"
+							class="form-select bg-dark text-currency"
+							aria-label="Default select example"
+						>
+							<option value="" selected disabled hidden>Choose here</option>
+							<option value="dollar">Dollar</option>
+							<option value="blue">Dollar blue</option>
+							<option value="euro">Euro</option>
+							<option value="peso">Peso</option>
+							<option value="real">Real</option>
+						</select>
+					</div>
+				</article>
 
-            <!-- Buttons -->
-            <article class="d-flex mt-5 justify-content-center">
-              <p class="lead me-5">
-                <a class="btn btn-outline-light" id="clean"
-                  ><i class="fa-solid fa-trash"></i
-                ></a>
-              </p>
-              <p class="lead">
-                <a id="lastConvertion" class="btn btn-outline-light"
-                  ><i class="fa-solid fa-arrow-rotate-left"></i
-                ></a>
-              </p>
-            </article>
+				<!-- Amount -->
+				<article class="mb-5 d-flex flex-row">
+					<div class="form-floating w-100">
+						<input
+							id="leftInput"
+							type="number"
+							class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+							value="0"
+							min="0"
+							title=""
+						/>
+						<label id="labelLeft" for="leftInput">Amount</label>
+					</div>
+					<div class="w-25 my-auto d-flex justify-content-center">
+						<h1>=</h1>
+					</div>
+					<div class="form-floating w-100">
+						<input
+							id="rightInput"
+							type="number"
+							class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
+							value="0"
+							min="0"
+							title=""
+						/>
+						<label id="labelRight" for="rightInput">Amount</label>
+					</div>
+				</article>
 
-            <!-- Last update -->
-            <article class="mt-4 justify-content-center">
-              <p id="last-update" class="mt-auto text-white-50"></p>
-            </article>
-          </div>
-        </section>
+				<!-- Buttons -->
+				<article class="mb-5 d-flex flex-row justify-content-center">
+					<div class="d-flex w-20 pe-5 justify-content-center">
+						<button type="button" class="btn btn-outline-light">
+							<i class="fa-solid fa-trash"></i>
+						</button>
+					</div>
+					<div class="d-flex w-20 justify-content-center">
+						<button type="button" class="btn btn-outline-light">
+							<i class="fa-solid fa-arrow-rotate-left"></i>
+						</button>
+					</div>
+				</article>
 
-        <!-- Graphic -->
-        <section class="graphic">
-          <h1 class="mb-5">Blue Dollar Evolution</h1>
-          <article>
-            <canvas id="blueGraph" width="400" height="300"></canvas>
-          </article>
+				<!-- Last update -->
+				<article class="d-flex justify-content-center">
+					<p id="last-update" class="mt-auto text-white-50"></p>
+				</article>
+			</section>
 
-          <!-- Time intervals -->
-          <article class="d-flex justify-content-evenly mt-4">
-            <button class="btn btn-outline-light btn-sm" id="5DButton">
-              5D
-            </button>
-            <button class="btn btn-outline-light btn-sm" id="1MButton">
-              1M
-            </button>
-            <button class="btn btn-outline-light btn-sm" id="6MButton">
-              6M
-            </button>
-            <button class="btn btn-outline-light btn-sm" id="1YButton">
-              1Y
-            </button>
-            <button class="btn btn-outline-light btn-sm" id="5YButton">
-              5Y
-            </button>
-            <button class="btn btn-outline-light btn-sm" id="MaxButton">
-              Máx
-            </button>
-          </article>
-        </section>
-      </main>
+			<!-- Rate -->
+			<section class="dollar-card container sticky-top ms-sm-5">
+				<div class="card text-center position-absolute m-auto">
+					<!-- Card header -->
+					<div
+						id="card-header"
+						class="d-flex flex-column card-header text-light"
+					>
+						<div class="m-auto d-flex justify-content-center">
+							<i
+								id="caret"
+								class="fa-solid align-self-center m-auto fs-4"
+							></i>
+							<p id="rate-value" class="m-auto fs-6 ms-2 me-1"></p>
+							<p class="m-auto fs-6">%</p>
+						</div>
+						<p class="m-auto fs-6">BLUE DOLLAR</p>
+					</div>
+					<!-- Card body -->
+					<div
+						id="card-body"
+						class="d-flex card-text card-body bg-dark visually-hidden"
+					>
+						<p class="text-light m-auto fs-6">
+							Buy <br />
+							<span id="value-buy">270.50</span>
+						</p>
+						<div class="vr me-2 ms-2"></div>
+						<p class="text-light m-auto fs-6">
+							Sell <br />
+							<span id="value-sell">270.50</span>
+						</p>
+					</div>
+				</div>
+			</section>
 
-      <!-- Footer bar -->
-      <footer class="text-white-50">
-        <p>
-          By
-          <a
-            href="https://github.com/ezEst6"
-            class="text-white text-decoration-none"
-            >@EzEst</a
-          >.
-        </p>
-      </footer>
-    </div>
-    <!-- Bootstrap -->
-    <script src="../bootstrap-local/js/bootstrap.bundle.min.js"></script>
+			<!-- Graphic -->
+			<section
+				class="d-flex flex-column container full-view justify-content-center"
+			>
+				<h2 class="mb-5">Blue Dollar Evolution</h2>
+				<article>
+					<canvas id="evoChart" width="400" height="200"></canvas>
+				</article>
 
-    <!-- Toastify -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
+				<!-- Time intervals -->
+				<article class="d-flex justify-content-evenly pt-3">
+					<button class="btn btn-outline-light" id="5DButton">5D</button>
+					<button class="btn btn-outline-light" id="1MButton">1M</button>
+					<button class="btn btn-outline-light" id="6MButton">6M</button>
+					<button class="btn btn-outline-light" id="1YButton">1Y</button>
+					<button class="btn btn-outline-light" id="5YButton">5Y</button>
+					<button class="btn btn-outline-light" id="MaxButton">Máx</button>
+				</article>
+			</section>
+		</main>
 
-    <!-- Convert JS -->
-    <!-- <script src="../scripts/convert.js"></script> -->
+		<!-- Footer bar -->
+		<footer class="container d-flex justify-content-center mt-5">
+			<p>
+				By
+				<a
+					href="https://github.com/ezEst6"
+					class="text-white text-decoration-none"
+					>@EzEst</a
+				>.
+			</p>
+		</footer>
 
-    <!-- Graphics JS -->
-    <script src="../scripts/graph.js"></script>
-  </body>
+		<!-- Bootstrap -->
+		<script src="../bootstrap-local/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Toastify -->
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/toastify-js"
+		></script>
+
+		<!-- Convert JS -->
+		<script src="../scripts/convert.js"></script>
+
+		<!-- Rate -->
+		<script src="../scripts/rateValue.js"></script>
+
+		<!-- Graphics JS -->
+		<script src="../scripts/charts.js"></script>
+	</body>
 </html>
