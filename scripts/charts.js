@@ -11,8 +11,8 @@ const data = {
 		{
 			label: 'Dollar',
 			data: [],
-			borderColor: ['rgba(75, 192, 192, 1)'],
-			backgroundColor: ['rgba(75, 192, 192, 1)'],
+			borderColor: ['#7dbd00'],
+			backgroundColor: ['#7dbd00'],
 		},
 	],
 };
