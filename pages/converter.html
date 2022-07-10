@@ -192,22 +192,132 @@
 				</div>
 			</section>
 
-			<!-- Graphic -->
+			<!-- Charts -->
 			<section
 				class="d-flex flex-column container full-view justify-content-center"
 			>
-				<h2 class="mb-5 text-center">Blue Dollar</h2>
+				<h2 class="mb-4 text-center">Blue Dollar</h2>
 				<article>
-					<canvas id="evoChart" width="400" height="200"></canvas>
+          <div class="accordion" id="accordionExample">
+            <!-- Evolution chart -->
+						<div class="accordion-item bg-dark border-light">
+							<h2 class="accordion-header" id="headingOne">
+								<button
+									class="accordion-button text-light bg-dark"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#collapseOne"
+									aria-expanded="true"
+									aria-controls="collapseOne"
+								>
+									<h4>Evolution</h4>
+								</button>
+							</h2>
+							<div
+								id="collapseOne"
+								class="accordion-collapse collapse show"
+								aria-labelledby="headingOne"
+								data-bs-parent="#accordionExample"
+							>
+								<div class="accordion-body">
+									<!-- Canvas -->
+									<canvas
+										id="evoChart"
+										width="400"
+										height="200"
+									></canvas>
 
-					<!-- Time intervals -->
-					<div class="d-flex justify-content-evenly pt-3">
-						<button class="btn btn-outline-light" id="5DButton">5D</button>
-						<button class="btn btn-outline-light" id="1MButton">1M</button>
-						<button class="btn btn-outline-light" id="6MButton">6M</button>
-						<button class="btn btn-outline-light" id="1YButton">1Y</button>
-						<button class="btn btn-outline-light" id="5YButton">5Y</button>
-						<button class="btn btn-outline-light" id="MaxButton">Máx</button>
+									<!-- Time intervals -->
+									<div class="d-flex justify-content-evenly pt-3">
+										<button
+											class="btn btn-outline-light"
+											id="5DButton"
+										>
+											5D
+										</button>
+										<button
+											class="btn btn-outline-light"
+											id="1MButton"
+										>
+											1M
+										</button>
+										<button
+											class="btn btn-outline-light"
+											id="6MButton"
+										>
+											6M
+										</button>
+										<button
+											class="btn btn-outline-light"
+											id="1YButton"
+										>
+											1Y
+										</button>
+										<button
+											class="btn btn-outline-light"
+											id="5YButton"
+										>
+											5Y
+										</button>
+										<button
+											class="btn btn-outline-light"
+											id="MaxButton"
+										>
+											Máx
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+            <!-- Gap chart -->
+						<div class="accordion-item bg-dark border-light">
+							<h2 class="accordion-header" id="headingTwo">
+								<button
+									class="accordion-button collapsed bg-dark text-light"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#collapseTwo"
+									aria-expanded="false"
+									aria-controls="collapseTwo"
+								>
+									<h4>Gap</h4>
+								</button>
+							</h2>
+							<div
+								id="collapseTwo"
+								class="accordion-collapse collapse"
+								aria-labelledby="headingTwo"
+								data-bs-parent="#accordionExample"
+							>
+								<div class="accordion-body">
+									<!-- Canvas -->
+									<canvas id="gapChart" width="400" height="200"></canvas>
+
+									<!-- Time intervals -->
+									<div class="d-flex justify-content-evenly pt-3">
+										<button class="btn btn-outline-light" id="5DGapBtn">
+											5D
+										</button>
+										<button class="btn btn-outline-light" id="1MGapBtn">
+											1M
+										</button>
+										<button class="btn btn-outline-light" id="6MGapBtn">
+											6M
+										</button>
+										<button class="btn btn-outline-light" id="1YGapBtn">
+											1Y
+										</button>
+										<button class="btn btn-outline-light" id="5YGapBtn">
+											5Y
+										</button>
+										<button class="btn btn-outline-light" id="maxGapBtn">
+											Máx
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</article>
 			</section>
