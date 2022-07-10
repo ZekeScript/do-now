@@ -14,18 +14,6 @@
 			href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
 		/>
 
-		<!-- Font Awesome -->
-		<script
-			src="https://kit.fontawesome.com/a1c904b53d.js"
-			crossorigin="anonymous"
-		></script>
-
-		<!-- Chart.js -->
-		<script
-			type="text/javascript"
-			src="https://cdn.jsdelivr.net/npm/chart.js"
-		></script>
-
 		<!-- Bootstrap core CSS -->
 		<link
 			href="../bootstrap-local/assets/dist/css/bootstrap.min.css"
@@ -198,8 +186,8 @@
 			>
 				<h2 class="mb-4 text-center">Blue Dollar</h2>
 				<article>
-          <div class="accordion" id="accordionExample">
-            <!-- Evolution chart -->
+					<div class="accordion" id="accordionExample">
+						<!-- Evolution chart -->
 						<div class="accordion-item bg-dark border-light">
 							<h2 class="accordion-header" id="headingOne">
 								<button
@@ -231,37 +219,37 @@
 									<div class="d-flex justify-content-evenly pt-3">
 										<button
 											class="btn btn-outline-light"
-											id="5DButton"
+											id="5DEvoBtn"
 										>
 											5D
 										</button>
 										<button
 											class="btn btn-outline-light"
-											id="1MButton"
+											id="1MEvoBtn"
 										>
 											1M
 										</button>
 										<button
 											class="btn btn-outline-light"
-											id="6MButton"
+											id="6MEvoBtn"
 										>
 											6M
 										</button>
 										<button
 											class="btn btn-outline-light"
-											id="1YButton"
+											id="1YEvoBtn"
 										>
 											1Y
 										</button>
 										<button
 											class="btn btn-outline-light"
-											id="5YButton"
+											id="5YEvoBtn"
 										>
 											5Y
 										</button>
 										<button
 											class="btn btn-outline-light"
-											id="MaxButton"
+											id="maxEvoBtn"
 										>
 											Máx
 										</button>
@@ -270,7 +258,7 @@
 							</div>
 						</div>
 
-            <!-- Gap chart -->
+						<!-- Gap chart -->
 						<div class="accordion-item bg-dark border-light">
 							<h2 class="accordion-header" id="headingTwo">
 								<button
@@ -292,26 +280,48 @@
 							>
 								<div class="accordion-body">
 									<!-- Canvas -->
-									<canvas id="gapChart" width="400" height="200"></canvas>
+									<canvas
+										id="gapChart"
+										width="400"
+										height="200"
+									></canvas>
 
 									<!-- Time intervals -->
 									<div class="d-flex justify-content-evenly pt-3">
-										<button class="btn btn-outline-light" id="5DGapBtn">
+										<button
+											class="btn btn-outline-light"
+											id="5DGapBtn"
+										>
 											5D
 										</button>
-										<button class="btn btn-outline-light" id="1MGapBtn">
+										<button
+											class="btn btn-outline-light"
+											id="1MGapBtn"
+										>
 											1M
 										</button>
-										<button class="btn btn-outline-light" id="6MGapBtn">
+										<button
+											class="btn btn-outline-light"
+											id="6MGapBtn"
+										>
 											6M
 										</button>
-										<button class="btn btn-outline-light" id="1YGapBtn">
+										<button
+											class="btn btn-outline-light"
+											id="1YGapBtn"
+										>
 											1Y
 										</button>
-										<button class="btn btn-outline-light" id="5YGapBtn">
+										<button
+											class="btn btn-outline-light"
+											id="5YGapBtn"
+										>
 											5Y
 										</button>
-										<button class="btn btn-outline-light" id="maxGapBtn">
+										<button
+											class="btn btn-outline-light"
+											id="maxGapBtn"
+										>
 											Máx
 										</button>
 									</div>
@@ -335,6 +345,18 @@
 			</p>
 		</footer>
 
+		<!-- Font Awesome -->
+		<script
+			src="https://kit.fontawesome.com/a1c904b53d.js"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- Chart.js -->
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/chart.js"
+		></script>
+
 		<!-- Bootstrap -->
 		<script src="../bootstrap-local/js/bootstrap.bundle.min.js"></script>
 
@@ -344,13 +366,14 @@
 			src="https://cdn.jsdelivr.net/npm/toastify-js"
 		></script>
 
-		<!-- Convert JS -->
+		<!-- Convert -->
 		<!-- <script src="../scripts/convert.js"></script> -->
 
 		<!-- Rate -->
 		<script src="../scripts/rateValue.js"></script>
 
-		<!-- Graphics JS -->
-		<script src="../scripts/charts.js"></script>
+		<!-- Charts -->
+		<script src="../scripts/evoChart.js"></script>
+		<script src="../scripts/gapChart.js"></script>
 	</body>
 </html>

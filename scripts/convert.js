@@ -1,5 +1,4 @@
 let amount, mainCurrency, secondaryCurrency, convertionRate, lastUpdate;
-
 const Currencys = [];
 
 /**
@@ -20,6 +19,7 @@ const getDollarBlue = (v6Euro, v6Real) => {
 			});
 		});
 };
+
 /**
  * Take the second API data and finish filling the "currencys" empty array
  * witth the blue value of the dollar for the Argentinian Peso
@@ -150,20 +150,21 @@ function fromRight() {
 		leftInput.value = (amount * convertionRate).toFixed(2);
 	}
 }
+
 /**
  * Take the first API last update data and drop into View
  */
 setTimeout(() => {
 	document.getElementById('last-update').innerText = lastUpdate.slice(0, -15);
-}, 500);
+}, 1000);
 
-// Events associated with the Select
+// Events associated with the Select converter
 let leftCurrency = document.getElementById('leftCurrency');
 leftCurrency.onchange = () => fromLeft();
 let rightCurrency = document.getElementById('rightCurrency');
 rightCurrency.onchange = () => fromRight();
 
-// Events associated with the Input
+// Events associated with the Input converter
 let leftInput = document.getElementById('leftInput');
 leftInput.onkeyup = () => fromLeft();
 leftInput.onchange = () => fromLeft();

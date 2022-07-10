@@ -31,7 +31,7 @@ const config = {
 };
 
 // render / init block
-const myChart = new Chart(document.getElementById('evoChart'), config);
+const evoChart = new Chart(document.getElementById('evoChart'), config);
 
 // Get the historical value from the API
 function getChart() {
@@ -57,10 +57,10 @@ function getChart() {
 					? dateValue.push(index.date) && blueValue.push(index.value_sell)
 					: oficialValue.push(index.value_sell);
 			});
-		myChart.config.data.labels = dateValue;
-		myChart.config.data.datasets[0].data = blueValue;
-		myChart.config.data.datasets[1].data = oficialValue;
-		myChart.update();
+		evoChart.config.data.labels = dateValue;
+		evoChart.config.data.datasets[0].data = blueValue;
+		evoChart.config.data.datasets[1].data = oficialValue;
+		evoChart.update();
 	});
 }
 
@@ -89,28 +89,23 @@ function getChartInterval(days) {
 					? dateValue.push(index.date) && blueValue.push(index.value_sell)
 					: oficialValue.push(index.value_sell);
 			});
-		myChart.config.data.labels = dateValue;
-		myChart.config.data.datasets[0].data = blueValue;
-		myChart.config.data.datasets[1].data = oficialValue;
-		myChart.update();
+		evoChart.config.data.labels = dateValue;
+		evoChart.config.data.datasets[0].data = blueValue;
+		evoChart.config.data.datasets[1].data = oficialValue;
+		evoChart.update();
 	});
 }
 
 // listener block
-const listenToMaxButton = document.getElementById('MaxButton');
-listenToMaxButton.onclick = () => getChart();
-
-const listenTo5YButton = document.getElementById('5YButton');
-listenTo5YButton.onclick = () => getChartInterval(3650);
-
-const listenTo1YButton = document.getElementById('1YButton');
-listenTo1YButton.onclick = () => getChartInterval(730);
-
-const listenTo6MButton = document.getElementById('6MButton');
-listenTo6MButton.onclick = () => getChartInterval(360);
-
-const listenTo1MButton = document.getElementById('1MButton');
-listenTo1MButton.onclick = () => getChartInterval(60);
-
-const listenTo5DButton = document.getElementById('5DButton');
-listenTo5DButton.onclick = () => getChartInterval(10);
+const listenToMaxEvoBtn = document.getElementById('maxEvoBtn');
+listenToMaxEvoBtn.onclick = () => getChart();
+const listenTo5YEvoBtn = document.getElementById('5YEvoBtn');
+listenTo5YEvoBtn.onclick = () => getChartInterval(3650);
+const listenTo1YEvoBtn = document.getElementById('1YEvoBtn');
+listenTo1YEvoBtn.onclick = () => getChartInterval(730);
+const listenTo6MEvoBtn = document.getElementById('6MEvoBtn');
+listenTo6MEvoBtn.onclick = () => getChartInterval(360);
+const listenTo1MEvoBtn = document.getElementById('1MEvoBtn');
+listenTo1MEvoBtn.onclick = () => getChartInterval(60);
+const listenTo5DEvoBtn = document.getElementById('5DEvoBtn');
+listenTo5DEvoBtn.onclick = () => getChartInterval(10);
