@@ -57,8 +57,17 @@
 			<section
 				class="d-flex w-50 container flex-column full-view justify-content-center p-5"
 			>
+				<h2 class="text-center mb-5">Currency converter</h2>
+
+				<article>
+					<i
+						class="fa-solid fa-circle-exclamation text-white-50"
+						title="I use the sell rate for this converter. &#010This is for informational purposes only."
+					></i>
+				</article>
+
 				<!-- Currency selection -->
-				<article class="mb-5 d-flex flex-row">
+				<article class="mb-5 d-flex flex-row mt-4">
 					<div class="w-100">
 						<select
 							id="leftCurrency"
@@ -182,9 +191,16 @@
 
 			<!-- Charts -->
 			<section
-				class="d-flex flex-column container full-view justify-content-center"
+				class="d-flex flex-column container full-view justify-content-center mb-5"
 			>
-				<h2 class="mb-4 text-center">Blue Dollar</h2>
+				<h2 class="mb-5 text-center">Historical values for both Dollars</h2>
+				<article>
+          <i
+						class="fa-solid fa-circle-exclamation text-white-50"
+						title="I use the sell transactional rates &#010from global currency markets. &#010They are not transactional rates. &#010This is for informational purposes only."
+					></i>
+				</article>
+
 				<article>
 					<div class="accordion" id="accordionExample">
 						<!-- Evolution chart -->
@@ -208,41 +224,34 @@
 								data-bs-parent="#accordionExample"
 							>
 								<div class="accordion-body">
-									<!-- Canvas -->
-									<canvas
-										id="evoChart"
-										width="400"
-										height="200"
-									></canvas>
-
 									<!-- Time intervals -->
-									<div class="d-flex justify-content-evenly pt-3">
+									<div class="d-flex justify-content-center pt-4 pb-3">
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="5DEvoBtn"
 										>
 											5D
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="1MEvoBtn"
 										>
 											1M
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="6MEvoBtn"
 										>
 											6M
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="1YEvoBtn"
 										>
 											1Y
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="5YEvoBtn"
 										>
 											5Y
@@ -254,6 +263,9 @@
 											Máx
 										</button>
 									</div>
+
+									<!-- Canvas -->
+									<canvas id="evoChart" width="3" height="1"></canvas>
 								</div>
 							</div>
 						</div>
@@ -279,52 +291,48 @@
 								data-bs-parent="#accordionExample"
 							>
 								<div class="accordion-body">
-									<!-- Canvas -->
-									<canvas
-										id="gapChart"
-										width="400"
-										height="200"
-									></canvas>
-
 									<!-- Time intervals -->
-									<div class="d-flex justify-content-evenly pt-3">
+									<div class="d-flex justify-content-center pt-4 pb-3">
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="5DGapBtn"
 										>
 											5D
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="1MGapBtn"
 										>
 											1M
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="6MGapBtn"
 										>
 											6M
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="1YGapBtn"
 										>
 											1Y
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="5YGapBtn"
 										>
 											5Y
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light me-4"
 											id="maxGapBtn"
 										>
 											Máx
 										</button>
 									</div>
+
+									<!-- Canvas -->
+									<canvas id="gapChart" width="3" height="1"></canvas>
 								</div>
 							</div>
 						</div>
@@ -334,7 +342,7 @@
 		</main>
 
 		<!-- Footer bar -->
-		<footer class="container d-flex justify-content-center mt-5">
+		<footer class="container d-flex justify-content-center mt-5 pt-5 pb-4">
 			<p>
 				By
 				<a
@@ -346,25 +354,16 @@
 		</footer>
 
 		<!-- Font Awesome -->
-		<script
-			src="https://kit.fontawesome.com/a1c904b53d.js"
-			crossorigin="anonymous"
-		></script>
+		<script src="https://kit.fontawesome.com/a1c904b53d.js"></script>
 
 		<!-- Chart.js -->
-		<script
-			type="text/javascript"
-			src="https://cdn.jsdelivr.net/npm/chart.js"
-		></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 		<!-- Bootstrap -->
 		<script src="../bootstrap-local/js/bootstrap.bundle.min.js"></script>
 
 		<!-- Toastify -->
-		<script
-			type="text/javascript"
-			src="https://cdn.jsdelivr.net/npm/toastify-js"
-		></script>
+		<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 		<!-- Convert -->
 		<script src="../scripts/convert.js"></script>
