@@ -35,7 +35,7 @@ function getChartGap() {
 		// wait until the request has been completed
 		const datapoints = await res.json();
 		return datapoints;
-	}
+  };
 
 	// Render the values if the labels (dates) on the graph
 	// and the values of the blue dollar and the oficial dollar
@@ -55,7 +55,7 @@ function getChartGap() {
 		gapChart.config.data.datasets[0].data = gap;
 		gapChart.update();
 	});
-}
+};
 
 // Get the historical values from TODAY to DAYS
 // by function parameter
@@ -86,7 +86,7 @@ function getChartGapInterval(days) {
 		gapChart.config.data.datasets[0].data = gap;
 		gapChart.update();
 	});
-}
+};
 
 // listener block
 const listenToMaxGapBtn = document.getElementById('maxGapBtn');

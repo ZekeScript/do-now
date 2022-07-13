@@ -1,4 +1,4 @@
-let amount, mainCurrency, secondaryCurrency, convertionRate, lastUpdate;
+let lastUpdate;
 const Currencys = [];
 
 /**
@@ -111,7 +111,7 @@ function refreshBtn() {
  * Take the values of both currencies and the convertion amoun
  * and save the values in the localStorage
  */
-function saveValues() {
+function saveValues(mainCurrency, secondaryCurrency, amount) {
 	localStorage.setItem('mainCurrency', JSON.stringify(mainCurrency));
 	localStorage.setItem('secondaryCurrency', secondaryCurrency);
 	localStorage.setItem('amount', amount);
@@ -126,26 +126,26 @@ function saveValues() {
  */
 function fromLeft() {
 	if (leftCurrency.value != '' && rightCurrency.value != '') {
-		amount = leftInput.value;
-		secondaryCurrency = rightCurrency.value;
-		mainCurrency = leftCurrency.value;
+		let amount = leftInput.value;
+		let secondaryCurrency = rightCurrency.value;
+		let mainCurrency = leftCurrency.value;
 		mainCurrency = Currencys.find((currency) => currency.name === leftCurrency.value);
-		convertionRate = mainCurrency[secondaryCurrency];
-		saveValues();
+		let convertionRate = mainCurrency[secondaryCurrency];
+		saveValues(mainCurrency, secondaryCurrency, amount);
 		rightInput = document.getElementById('rightInput');
 		rightInput.value = (amount * convertionRate).toFixed(2);
 	}
 }
 function fromRight() {
 	if (leftCurrency.value != '' && rightCurrency.value != '') {
-		amount = rightInput.value;
-		secondaryCurrency = leftCurrency.value;
-		mainCurrency = rightCurrency.value;
+		let amount = rightInput.value;
+		let secondaryCurrency = leftCurrency.value;
+		let mainCurrency = rightCurrency.value;
 		mainCurrency = Currencys.find(
 			(currency) => currency.name === rightCurrency.value
 		);
-		convertionRate = mainCurrency[secondaryCurrency];
-		saveValues();
+		let convertionRate = mainCurrency[secondaryCurrency];
+		saveValues(mainCurrency, secondaryCurrency, amount);
 		leftInput = document.getElementById('leftInput');
 		leftInput.value = (amount * convertionRate).toFixed(2);
 	}

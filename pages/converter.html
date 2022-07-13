@@ -58,7 +58,6 @@
 				class="d-flex w-50 container flex-column full-view justify-content-center p-5"
 			>
 				<h2 class="text-center mb-5">Currency converter</h2>
-
 				<article>
 					<i
 						class="fa-solid fa-circle-exclamation text-white-50"
@@ -159,7 +158,7 @@
 					<!-- Card header -->
 					<div
 						id="card-header"
-						class="d-flex flex-column card-header text-light"
+						class="d-flex flex-column bg-dark text-light pt-2 pe-3 ps-3 pb-1"
 					>
 						<div class="m-auto d-flex justify-content-center">
 							<i
@@ -191,30 +190,32 @@
 
       <!-- Quote by date -->
 			<section
-				class="d-flex w-50 container flex-column full-view justify-content-center p-5"
+				class="d-flex w-50 container flex-column full-view justify-content-center mb-5"
 			>
 				<h2 class="text-center mb-5">Exchange rate of specific day</h2>
-				<article class="d-flex justify-content-around">
+				<article class="d-flex justify-content-around mb-5">
 					<div class="form-floating w-50">
 						<input
-							id="leftInputDate"
+							id="queryDate"
 							type="date"
 							class="form-control bg-dark border border-top-0 border-end-0 border-start-0 rounded-0 text-light"
 							title="Date"
+              min="2011-01-03"
 						/>
-						<label for="leftInputDate">Date</label>
+						<label for="queryDate">Date</label>
 					</div>
 				</article>
 
-        <article>
-
+        <!-- Query date data -->
+        <article id="resQueryDate" class="d-flex justify-content-between">
         </article>
+
 			</section>
 
 
 			<!-- Charts -->
 			<section
-				class="d-flex flex-column container full-view justify-content-center mb-5"
+				class="d-flex flex-column container full-view justify-content-center mb-5 p-5"
 			>
 				<h2 class="mb-5 text-center">Historical values for both Dollars</h2>
 				<article>
@@ -248,7 +249,7 @@
 							>
 								<div class="accordion-body">
 									<!-- Time intervals -->
-									<div class="d-flex justify-content-center pt-4 pb-3">
+									<div class="d-flex justify-content-center pb-4">
 										<button
 											class="btn btn-outline-light me-4"
 											id="5DEvoBtn"
@@ -315,7 +316,7 @@
 							>
 								<div class="accordion-body">
 									<!-- Time intervals -->
-									<div class="d-flex justify-content-center pt-4 pb-3">
+									<div class="d-flex justify-content-center pb-4">
 										<button
 											class="btn btn-outline-light me-4"
 											id="5DGapBtn"
@@ -397,5 +398,7 @@
 		<!-- Charts -->
 		<script src="../scripts/evoChart.js"></script>
 		<script src="../scripts/gapChart.js"></script>
+    <script src="../scripts/quoteByDate.js"></script>
+
 	</body>
 </html>
