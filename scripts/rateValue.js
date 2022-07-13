@@ -13,10 +13,7 @@ getLastValue().then((data) => {
 });
 
 function changeRate() {
-	return (
-		((beforeLastValue.value_sell * 100) / lastValue.value_sell - 100) *
-		-1
-	).toFixed(2);
+	return ((lastValue.value_sell * 100) / beforeLastValue.value_sell - 100).toFixed(2);
 }
 
 function removeClass() {

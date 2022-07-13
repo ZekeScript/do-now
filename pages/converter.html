@@ -55,7 +55,7 @@
 		<main>
 			<!-- Converter -->
 			<section
-				class="d-flex w-50 container flex-column full-view justify-content-center p-5"
+				class="d-flex w-50 container flex-column full-view justify-content-center"
 			>
 				<h2 class="text-center mb-5">Currency converter</h2>
 				<article>
@@ -74,8 +74,8 @@
 							aria-label="Default select example"
 						>
 							<option value="" selected disabled hidden>Choose here</option>
-							<option value="dollar">Dollar</option>
-							<option value="blue">Dollar blue</option>
+							<option value="dollar">Oficial Dollar</option>
+							<option value="blue">Blue Dollar</option>
 							<option value="euro">Euro</option>
 							<option value="peso">Peso</option>
 							<option value="real">Real</option>
@@ -94,8 +94,8 @@
 							aria-label="Default select example"
 						>
 							<option value="" selected disabled hidden>Choose here</option>
-							<option value="dollar">Dollar</option>
-							<option value="blue">Dollar blue</option>
+							<option value="dollar">Oficial Dollar</option>
+							<option value="blue">Blue Dollar</option>
 							<option value="euro">Euro</option>
 							<option value="peso">Peso</option>
 							<option value="real">Real</option>
@@ -135,12 +135,12 @@
 				<!-- Buttons -->
 				<article class="mb-5 d-flex flex-row justify-content-center">
 					<div class="d-flex w-20 pe-5 justify-content-center">
-						<button type="button" class="btn btn-outline-light">
+						<button id="clean" type="button" class="btn btn-outline-light">
 							<i class="fa-solid fa-trash"></i>
 						</button>
 					</div>
 					<div class="d-flex w-20 justify-content-center">
-						<button type="button" class="btn btn-outline-light">
+						<button id="lastConvertion" type="button" class="btn btn-outline-light">
 							<i class="fa-solid fa-arrow-rotate-left"></i>
 						</button>
 					</div>
@@ -177,12 +177,12 @@
 					>
 						<p class="text-light m-auto fs-6">
 							Buy <br />
-							<span id="value-buy">270.50</span>
+							<span id="value-buy"></span>
 						</p>
 						<div class="vr me-2 ms-2"></div>
 						<p class="text-light m-auto fs-6">
 							Sell <br />
-							<span id="value-sell">270.50</span>
+							<span id="value-sell"></span>
 						</p>
 					</div>
 				</div>
@@ -194,7 +194,7 @@
 			>
 				<h2 class="text-center mb-5">Exchange rate of specific day</h2>
 				<article class="d-flex justify-content-around mb-5">
-					<div class="form-floating w-50">
+					<div class="form-floating">
 						<input
 							id="queryDate"
 							type="date"
@@ -211,7 +211,6 @@
         </article>
 
 			</section>
-
 
 			<!-- Charts -->
 			<section
@@ -251,37 +250,37 @@
 									<!-- Time intervals -->
 									<div class="d-flex justify-content-center pb-4">
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-2"
 											id="5DEvoBtn"
 										>
 											5D
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-2"
 											id="1MEvoBtn"
 										>
 											1M
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-2"
 											id="6MEvoBtn"
 										>
 											6M
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-2"
 											id="1YEvoBtn"
 										>
 											1Y
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-2"
 											id="5YEvoBtn"
 										>
 											5Y
 										</button>
 										<button
-											class="btn btn-outline-light"
+											class="btn btn-outline-light btn-sm"
 											id="maxEvoBtn"
 										>
 											Máx
@@ -318,37 +317,37 @@
 									<!-- Time intervals -->
 									<div class="d-flex justify-content-center pb-4">
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-4"
 											id="5DGapBtn"
 										>
 											5D
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-4"
 											id="1MGapBtn"
 										>
 											1M
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-4"
 											id="6MGapBtn"
 										>
 											6M
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-4"
 											id="1YGapBtn"
 										>
 											1Y
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-4"
 											id="5YGapBtn"
 										>
 											5Y
 										</button>
 										<button
-											class="btn btn-outline-light me-4"
+											class="btn btn-outline-light btn-sm me-4"
 											id="maxGapBtn"
 										>
 											Máx
@@ -390,7 +389,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 		<!-- Convert -->
-		<!-- <script src="../scripts/convert.js"></script> -->
+		<script src="../scripts/convert.js"></script>
 
 		<!-- Rate -->
 		<script src="../scripts/rateValue.js"></script>

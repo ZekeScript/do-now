@@ -9,7 +9,7 @@ const data = {
 			backgroundColor: ['#36a2eb'],
 		},
 		{
-			label: 'Dollar',
+			label: 'Oficial Dollar',
 			data: [],
 			borderColor: ['#7dbd00'],
 			backgroundColor: ['#7dbd00'],

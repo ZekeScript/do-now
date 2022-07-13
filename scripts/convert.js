@@ -1,4 +1,4 @@
-let lastUpdate;
+let amount, mainCurrency, secondaryCurrency, convertionRate, lastUpdate;
 const Currencys = [];
 
 /**
@@ -99,11 +99,11 @@ getCurrencyValues();
 function refreshBtn() {
 	let rotacion = (360 / 100) * 2.5; // rotation time
 	setTimeout(() => {
-		document.getElementById('btnRefresh').classList.add('rotate');
+		document.getElementById('cross').classList.add('rotate');
 	}, 100);
 
 	setTimeout(() => {
-		document.getElementById('btnRefresh').classList.remove('rotate');
+		document.getElementById('cross').classList.remove('rotate');
 	}, rotacion);
 }
 
@@ -126,11 +126,11 @@ function saveValues(mainCurrency, secondaryCurrency, amount) {
  */
 function fromLeft() {
 	if (leftCurrency.value != '' && rightCurrency.value != '') {
-		let amount = leftInput.value;
-		let secondaryCurrency = rightCurrency.value;
-		let mainCurrency = leftCurrency.value;
+		amount = leftInput.value;
+		secondaryCurrency = rightCurrency.value;
+		mainCurrency = leftCurrency.value;
 		mainCurrency = Currencys.find((currency) => currency.name === leftCurrency.value);
-		let convertionRate = mainCurrency[secondaryCurrency];
+		convertionRate = mainCurrency[secondaryCurrency];
 		saveValues(mainCurrency, secondaryCurrency, amount);
 		rightInput = document.getElementById('rightInput');
 		rightInput.value = (amount * convertionRate).toFixed(2);
@@ -138,14 +138,12 @@ function fromLeft() {
 }
 function fromRight() {
 	if (leftCurrency.value != '' && rightCurrency.value != '') {
-		let amount = rightInput.value;
-		let secondaryCurrency = leftCurrency.value;
-		let mainCurrency = rightCurrency.value;
-		mainCurrency = Currencys.find(
-			(currency) => currency.name === rightCurrency.value
-		);
-		let convertionRate = mainCurrency[secondaryCurrency];
-		saveValues(mainCurrency, secondaryCurrency, amount);
+		amount = rightInput.value;
+		secondaryCurrency = leftCurrency.value;
+		mainCurrency = rightCurrency.value;
+		mainCurrency = Currencys.find((currency) => currency.name === rightCurrency.value);
+		convertionRate = mainCurrency[secondaryCurrency];
+		saveValues();
 		leftInput = document.getElementById('leftInput');
 		leftInput.value = (amount * convertionRate).toFixed(2);
 	}
@@ -196,7 +194,7 @@ lastConvertion.onclick = () => {
 };
 
 // Event to cross the currencies
-const crossBtn = document.getElementById('btnRefresh');
+const crossBtn = document.getElementById('cross');
 crossBtn.onclick = () => {
 	leftCurrency = document.getElementById('leftCurrency');
 	rightCurrency = document.getElementById('rightCurrency');

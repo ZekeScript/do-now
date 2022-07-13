@@ -1,4 +1,3 @@
-let queryArray;
 let latestValue = [];
 let lastUpdate;
 
@@ -20,57 +19,111 @@ function getLatestValue() {
 }
 getLatestValue();
 
-function changeRate() {
-	return (((beforeLastValue.value_sell * 100) / lastValue.value_sell - 100) * -1).toFixed(
-		2
-	);
+function oficialBuyPorcentage(query) {
+	let oficialPorcentage = (
+		(latestValue[0].value_buy * 100) / query[0].value_buy -
+		100
+	).toFixed(2);
+	return (porcentage =
+		oficialPorcentage == 0
+			? `<i class="fa-solid fa-arrow-down-up-across-line ms-1"></i> ${oficialPorcentage} %`
+			: oficialPorcentage < 0
+			? `<i class="fas fa-caret-down ms-1"></i> ` + oficialPorcentage + ` %`
+			: `<i class="fa-solid fa-caret-up ms-1"></i> ` + oficialPorcentage + ` %`);
+}
+function oficialSellPorcentage(query) {
+	let oficialPorcentage = (
+		(latestValue[0].value_sell * 100) / query[0].value_sell -
+		100
+	).toFixed(2);
+	return (porcentage =
+		oficialPorcentage == 0
+			? `<i class="fa-solid fa-arrow-down-up-across-line ms-1"></i> ${oficialPorcentage} %`
+			: oficialPorcentage < 0
+			? `<i class="fas fa-caret-down ms-1"></i> ` + oficialPorcentage + ` %`
+			: `<i class="fa-solid fa-caret-up ms-1"></i> ` + oficialPorcentage + ` %`);
+}
+function blueBuyPorcentage(query) {
+	let blueSeellPorcentage = (
+		(latestValue[1].value_buy * 100) / query[1].value_buy -
+		100
+	).toFixed(2);
+	return (porcentage =
+		blueSeellPorcentage == 0
+			? `<i class="fa-solid fa-arrow-down-up-across-line ms-1"></i> ${blueSeellPorcentage} %`
+			: blueSeellPorcentage < 0
+			? `<i class="fas fa-caret-down ms-1"></i> ` + blueSeellPorcentage + ` %`
+			: `<i class="fa-solid fa-caret-up ms-1"></i> ` + blueSeellPorcentage + ` %`);
+}
+function blueSellPorcentage(query) {
+	let blueSeellPorcentage = (
+		(latestValue[1].value_sell * 100) / query[1].value_sell -
+		100
+	).toFixed(2);
+	return (porcentage =
+		blueSeellPorcentage == 0
+			? `<i class="fa-solid fa-arrow-down-up-across-line ms-1"></i> ${blueSeellPorcentage} %`
+			: blueSeellPorcentage < 0
+			? `<i class="fas fa-caret-down ms-1"></i> ` + blueSeellPorcentage + ` %`
+			: `<i class="fa-solid fa-caret-up ms-1"></i> ` + blueSeellPorcentage + ` %`);
 }
 
 function renderQuery(query) {
 	let resQueryDate = document.getElementById('resQueryDate');
-	resQueryDate.innerHTML = `
-    <div class="card border-light bg-dark mt-5">
-      <div class="card-header bg-transparent border-light">${query[0].date}</div>
-      <div class="card-body pe-4 ps-4">
-        <h5 class="card-title">Dollar</h5>
-        <p class="card-text">$ ${query[0].value_buy} - $ ${query[0].value_sell}</p>
-        <h5 class="card-title">Blue Dollar</h5>
-        <p class="card-text">$ ${query[1].value_buy} - $ ${query[1].value_sell}</p>
-      </div>
+	resQueryDate.innerHTML = `<div class="card border-light bg-dark mt-5">
+    <div class="card-header bg-transparent border-light text-center">
+      ${query[0].date}
     </div>
-
-    <div class="card border-light bg-dark mt-5">
-      <div class="card-header bg-transparent border-light">Difference</div>
-      <div class="card-body pe-4 ps-4">
-        <h5 class="card-title">Dollar</h5>
-        <p class="card-text">$ ${(latestValue[0].value_buy - query[0].value_buy).toFixed(2)} - $ ${
-		(latestValue[0].value_sell - query[0].value_sell).toFixed(2)
-	}</p>
-        <h5 class="card-title">Blue Dollar</h5>
-        <p class="card-text">$ ${latestValue[1].value_buy - query[1].value_buy} - $ ${
-		latestValue[1].value_sell - query[1].value_sell
-	}</p>
-      </div>
-      <div class="card-footer bg-transparent border-light">${0}</div>
+    <div class="card-body pe-4 ps-4">
+      <h5 class="card-title">Oficial Dollar</h5>
+      <p class="card-text">
+        Buy: $ ${query[0].value_buy} <br> 
+        Sell: $ ${query[0].value_sell}
+      </p>
+      <h5 class="card-title">Blue Dollar</h5>
+      <p class="card-text">
+        Buy: $ ${query[1].value_buy} <br> 
+        Sell: $ ${query[1].value_sell}
+      </p>
     </div>
-
-    <div class="card border-light bg-dark mt-5">
-      <div class="card-header bg-transparent border-light">${lastUpdate.slice(
-				0,
-				-22
-			)}</div>
-      <div class="card-body pe-4 ps-4">
-        <h5 class="card-title">Dollar</h5>
-        <p class="card-text">$ ${latestValue[0].value_buy} - $ ${
-		latestValue[0].value_sell
-	}</p>
-        <h5 class="card-title">Blue Dollar</h5>
-        <p class="card-text">$ ${latestValue[1].value_buy} - $ ${
-		latestValue[1].value_sell
-	}</p>
-      </div>
+  </div>
+  <div class="card border-light bg-dark mt-5">
+    <div class="card-header bg-transparent border-light text-center">
+      Difference with today (${lastUpdate.slice(0, -22)})
     </div>
-`;
+    <div class="card-body pe-4 ps-4">
+      <h5 class="card-title">Oficial Dollar</h5>
+      <p class="card-text">
+        Buy: $ ${query[0].value_buy} - 
+        $ ${latestValue[0].value_buy}
+        <i class="fa-solid fa-equals me-1 ms-1"></i>
+        $ ${(latestValue[0].value_buy - query[0].value_buy).toFixed(2)}
+        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        ${oficialBuyPorcentage(query)} <br>
+        Sell: $ ${query[0].value_sell} - 
+        $ ${latestValue[0].value_sell}
+        <i class="fa-solid fa-equals me-1 ms-1"></i>
+        $ ${(latestValue[0].value_sell - query[0].value_sell).toFixed(2)}
+        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        ${oficialSellPorcentage(query)}
+      </p>
+      <h5 class="card-title">Blue Dollar</h5>
+      <p class="card-text">
+        Buy: $ ${query[1].value_buy} - 
+        $ ${latestValue[1].value_buy}
+        <i class="fa-solid fa-equals me-1 ms-1"></i>
+        $ ${(latestValue[1].value_buy - query[1].value_buy).toFixed(2)}
+        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        ${oficialBuyPorcentage(query)} <br>
+        Sell: $ ${query[1].value_sell} - 
+        $ ${latestValue[1].value_sell}
+        <i class="fa-solid fa-equals me-1 ms-1"></i>
+        $ ${(latestValue[1].value_sell - query[1].value_sell).toFixed(2)}
+        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        ${oficialSellPorcentage(query)}
+      </p>
+    </div>
+  </div>`;
 }
 
 // Get the historical value from the API
@@ -84,7 +137,7 @@ function getValueByDate(queryDate) {
 	}
 
 	fetchdata().then((datapoints) => {
-		queryArray = [];
+		let queryArray = [];
 		datapoints.map(function (index) {
 			index.date == queryDate && queryArray.push(index);
 		});
