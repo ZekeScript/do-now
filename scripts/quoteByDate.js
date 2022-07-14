@@ -1,5 +1,5 @@
 let latestValue = [];
-let lastUpdate;
+let blueLastUpdate;
 
 // Get the historical value from the API
 function getLatestValue() {
@@ -14,7 +14,7 @@ function getLatestValue() {
 	fetchdata().then((datapoints) => {
 		latestValue.push(datapoints.oficial);
 		latestValue.push(datapoints.blue);
-		lastUpdate = datapoints.last_update;
+		blueLastUpdate = datapoints.last_update;
 	});
 }
 getLatestValue();
@@ -89,7 +89,7 @@ function renderQuery(query) {
   </div>
   <div class="card border-light bg-dark mt-lg-5 mt-4">
     <div class="card-header bg-transparent border-light text-center">
-      Difference with today<br> (${lastUpdate.slice(0, -22)})
+      Difference with today<br> (${blueLastUpdate.slice(0, -22)})
     </div>
     <div class="card-body pe-lg-4 ps-lg-4">
       <h5 class="card-title">Oficial Dollar</h5>
