@@ -55,9 +55,9 @@
 		<main>
 			<!-- Converter -->
 			<section
-				class="d-flex w-50 container flex-column full-view justify-content-center"
+				class="d-flex w-lg-50 p-5 container flex-column full-view justify-content-center"
 			>
-				<h2 class="text-center mb-5">Currency converter</h2>
+				<h2 class="text-center mb-lg-5">Currency converter</h2>
 				<article>
 					<i
 						class="fa-solid fa-circle-exclamation text-white-50"
@@ -66,7 +66,7 @@
 				</article>
 
 				<!-- Currency selection -->
-				<article class="mb-5 d-flex flex-row mt-4">
+				<article class="mb-lg-5 d-flex flex-row mt-lg-4">
 					<div class="w-100">
 						<select
 							id="leftCurrency"
@@ -104,7 +104,7 @@
 				</article>
 
 				<!-- Amount -->
-				<article class="mb-5 d-flex flex-row">
+				<article class="mb-lg-5 d-flex flex-row mb-4">
 					<div class="form-floating w-100">
 						<input
 							id="leftInput"
@@ -133,7 +133,7 @@
 				</article>
 
 				<!-- Buttons -->
-				<article class="mb-5 d-flex flex-row justify-content-center">
+				<article class="mb-lg-5 d-flex flex-row justify-content-center">
 					<div class="d-flex w-20 pe-5 justify-content-center">
 						<button id="clean" type="button" class="btn btn-outline-light">
 							<i class="fa-solid fa-trash"></i>
@@ -190,10 +190,10 @@
 
       <!-- Quote by date -->
 			<section
-				class="d-flex w-50 container flex-column full-view justify-content-center mb-5"
+				class="d-flex w-50 container flex-column full-view justify-content-center mb-lg-5"
 			>
-				<h2 class="text-center mb-5">Exchange rate of specific day</h2>
-				<article class="d-flex justify-content-around mb-5">
+				<h2 class="text-center mb-lg-5 mb-4">Exchange rate of specific day</h2>
+				<article class="d-flex justify-content-around mb-lg-5 mb-4">
 					<div class="form-floating">
 						<input
 							id="queryDate"
@@ -207,16 +207,16 @@
 				</article>
 
         <!-- Query date data -->
-        <article id="resQueryDate" class="d-flex justify-content-between">
+        <article id="resQueryDate" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-around">
         </article>
 
 			</section>
 
 			<!-- Charts -->
 			<section
-				class="d-flex flex-column container full-view justify-content-center mb-5 p-5"
+				class="d-flex flex-column container full-view justify-content-center mb-lg-5 p-lg-5"
 			>
-				<h2 class="mb-5 text-center">Historical values for both Dollars</h2>
+				<h2 class="mb-lg-5 text-center">Historical values for both Dollars</h2>
 				<article>
           <i
 						class="fa-solid fa-circle-exclamation text-white-50"
@@ -237,7 +237,7 @@
 									aria-expanded="true"
 									aria-controls="collapseOne"
 								>
-									<h4>Evolution</h4>
+									Evolution
 								</button>
 							</h2>
 							<div
@@ -248,33 +248,33 @@
 							>
 								<div class="accordion-body">
 									<!-- Time intervals -->
-									<div class="d-flex justify-content-center pb-4">
+									<div class="d-flex justify-content-center pb-lg-4 pb-1">
 										<button
-											class="btn btn-outline-light btn-sm me-2"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="5DEvoBtn"
 										>
 											5D
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-2"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="1MEvoBtn"
 										>
 											1M
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-2"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="6MEvoBtn"
 										>
 											6M
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-2"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="1YEvoBtn"
 										>
 											1Y
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-2"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="5YEvoBtn"
 										>
 											5Y
@@ -288,7 +288,7 @@
 									</div>
 
 									<!-- Canvas -->
-									<canvas id="evoChart" width="3" height="1"></canvas>
+									<canvas id="evoChart" class="" width="3" height="1"></canvas>
 								</div>
 							</div>
 						</div>
@@ -304,7 +304,7 @@
 									aria-expanded="false"
 									aria-controls="collapseTwo"
 								>
-									<h4>Gap</h4>
+									Gap
 								</button>
 							</h2>
 							<div
@@ -315,39 +315,39 @@
 							>
 								<div class="accordion-body">
 									<!-- Time intervals -->
-									<div class="d-flex justify-content-center pb-4">
+									<div class="d-flex justify-content-center pb-lg-4 pb-1">
 										<button
-											class="btn btn-outline-light btn-sm me-4"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="5DGapBtn"
 										>
 											5D
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-4"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="1MGapBtn"
 										>
 											1M
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-4"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="6MGapBtn"
 										>
 											6M
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-4"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="1YGapBtn"
 										>
 											1Y
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-4"
+											class="btn btn-outline-light btn-sm me-lg-4 me-1"
 											id="5YGapBtn"
 										>
 											5Y
 										</button>
 										<button
-											class="btn btn-outline-light btn-sm me-4"
+											class="btn btn-outline-light btn-sm"
 											id="maxGapBtn"
 										>
 											Máx

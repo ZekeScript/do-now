@@ -70,11 +70,11 @@ function blueSellPorcentage(query) {
 
 function renderQuery(query) {
 	let resQueryDate = document.getElementById('resQueryDate');
-	resQueryDate.innerHTML = `<div class="card border-light bg-dark mt-5">
+	resQueryDate.innerHTML = `<div class="card border-light bg-dark mt-lg-5">
     <div class="card-header bg-transparent border-light text-center">
       ${query[0].date}
     </div>
-    <div class="card-body pe-4 ps-4">
+    <div class="card-body pe-lg-4 ps-lg-4">
       <h5 class="card-title">Oficial Dollar</h5>
       <p class="card-text">
         Buy: $ ${query[0].value_buy} <br> 
@@ -87,39 +87,27 @@ function renderQuery(query) {
       </p>
     </div>
   </div>
-  <div class="card border-light bg-dark mt-5">
+  <div class="card border-light bg-dark mt-lg-5 mt-4">
     <div class="card-header bg-transparent border-light text-center">
-      Difference with today (${lastUpdate.slice(0, -22)})
+      Difference with today<br> (${lastUpdate.slice(0, -22)})
     </div>
-    <div class="card-body pe-4 ps-4">
+    <div class="card-body pe-lg-4 ps-lg-4">
       <h5 class="card-title">Oficial Dollar</h5>
       <p class="card-text">
-        Buy: $ ${query[0].value_buy} - 
-        $ ${latestValue[0].value_buy}
-        <i class="fa-solid fa-equals me-1 ms-1"></i>
-        $ ${(latestValue[0].value_buy - query[0].value_buy).toFixed(2)}
-        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        Buy: $ ${(latestValue[0].value_buy - query[0].value_buy).toFixed(2)}
+        <i class="fa-solid fa-right-long me-1 ms-1"></i>
         ${oficialBuyPorcentage(query)} <br>
-        Sell: $ ${query[0].value_sell} - 
-        $ ${latestValue[0].value_sell}
-        <i class="fa-solid fa-equals me-1 ms-1"></i>
-        $ ${(latestValue[0].value_sell - query[0].value_sell).toFixed(2)}
-        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        Sell: $ ${(latestValue[0].value_sell - query[0].value_sell).toFixed(2)}
+        <i class="fa-solid fa-right-long me-1 ms-1"></i>
         ${oficialSellPorcentage(query)}
       </p>
       <h5 class="card-title">Blue Dollar</h5>
       <p class="card-text">
-        Buy: $ ${query[1].value_buy} - 
-        $ ${latestValue[1].value_buy}
-        <i class="fa-solid fa-equals me-1 ms-1"></i>
-        $ ${(latestValue[1].value_buy - query[1].value_buy).toFixed(2)}
-        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        Buy: $ ${(latestValue[1].value_buy - query[1].value_buy).toFixed(2)}
+        <i class="fa-solid fa-right-long me-1 ms-1"></i>
         ${oficialBuyPorcentage(query)} <br>
-        Sell: $ ${query[1].value_sell} - 
-        $ ${latestValue[1].value_sell}
-        <i class="fa-solid fa-equals me-1 ms-1"></i>
-        $ ${(latestValue[1].value_sell - query[1].value_sell).toFixed(2)}
-        <i class="fa-solid fa-right-long me-2 ms-2"></i>
+        Sell: $ ${(latestValue[1].value_sell - query[1].value_sell).toFixed(2)}
+        <i class="fa-solid fa-right-long me-1 ms-1"></i>
         ${oficialSellPorcentage(query)}
       </p>
     </div>

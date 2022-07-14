@@ -3,13 +3,13 @@ const data = {
 	labels: [],
 	datasets: [
 		{
-			label: 'Blue dollar',
+			label: 'Blue',
 			data: [],
 			borderColor: ['#36a2eb'],
 			backgroundColor: ['#36a2eb'],
 		},
 		{
-			label: 'Oficial Dollar',
+			label: 'Oficial',
 			data: [],
 			borderColor: ['#7dbd00'],
 			backgroundColor: ['#7dbd00'],
