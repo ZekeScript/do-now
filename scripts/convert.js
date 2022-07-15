@@ -176,9 +176,11 @@ rightCurrency.onchange = () => {
 
 // Events associated with the Input converter
 let leftInput = document.getElementById('leftInput');
+leftInput.onclick = () => (leftInput.value = '');
 leftInput.onkeyup = () => fromLeft();
 leftInput.onchange = () => fromLeft();
 let rightInput = document.getElementById('rightInput');
+rightInput.onclick = () => (rightInput.value = '');
 rightInput.onkeyup = () => fromRight();
 rightInput.onchange = () => fromRight();
 
