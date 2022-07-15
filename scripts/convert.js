@@ -44,7 +44,7 @@ const getPeso = (v6Euro, v6Real, v6Dollar) => {
  * witth the oficial value of the currencys
  */
 const getCurrencyValues = () => {
-	fetch(`https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/BRL`)
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/BRL`)
 		.then((res) => res.json())
 		.then((data) => {
 			Currencys.push({
@@ -56,7 +56,7 @@ const getCurrencyValues = () => {
 				real: 1,
 			});
 		});
-	fetch(`https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/ARS`)
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/ARS`)
 		.then((res) => res.json())
 		.then((data) => {
 			getPeso(
@@ -65,7 +65,7 @@ const getCurrencyValues = () => {
 				data.conversion_rates.USD
 			);
 		});
-	fetch(`https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/USD`)
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/USD`)
 		.then((res) => res.json())
 		.then((data) => {
 			Currencys.push({
@@ -80,7 +80,7 @@ const getCurrencyValues = () => {
 		${data.time_last_update_utc}`;
 			getDollarBlue(data.conversion_rates.EUR, data.conversion_rates.BRL);
 		});
-	fetch(`https://v6.exchangerate-api.com/v6/aaad5115d2f3dab52793be4d/latest/EUR`)
+	fetch(`https://v6.exchangerate-api.com/v6/af786ca433f2f75db62c2ccc/latest/EUR`)
 		.then((res) => res.json())
 		.then((data) => {
 			Currencys.push({
@@ -158,9 +158,19 @@ setTimeout(() => {
 
 // Events associated with the Select converter
 let leftCurrency = document.getElementById('leftCurrency');
-leftCurrency.onchange = () => fromLeft();
+leftCurrency.onchange = () => {
+	leftCurrency.value != 1 &&
+		rightCurrency.value != 1 &&
+		(document.getElementById('leftInput').disabled = false) &&
+		(document.getElementById('rightInput').disabled = false);
+};
 let rightCurrency = document.getElementById('rightCurrency');
-rightCurrency.onchange = () => fromRight();
+rightCurrency.onchange = () => {
+	leftCurrency.value != 1 &&
+		rightCurrency.value != 1 &&
+		(document.getElementById('leftInput').disabled = false) &&
+		(document.getElementById('rightInput').disabled = false);
+};
 
 // Events associated with the Input converter
 let leftInput = document.getElementById('leftInput');

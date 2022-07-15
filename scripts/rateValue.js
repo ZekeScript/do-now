@@ -40,4 +40,4 @@ setTimeout(() => {
 		: Number(rate) < 0
 		? document.getElementById('caret').classList.add('fa-caret-down')
 		: document.getElementById('caret').classList.add('fa-caret-up');
-}, 1000);
+}, 1500);
