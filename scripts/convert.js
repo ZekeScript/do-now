@@ -159,17 +159,19 @@ setTimeout(() => {
 // Events associated with the Select converter
 let leftCurrency = document.getElementById('leftCurrency');
 leftCurrency.onchange = () => {
-	leftCurrency.value != 1 &&
-		rightCurrency.value != 1 &&
-		(document.getElementById('leftInput').disabled = false) &&
-		(document.getElementById('rightInput').disabled = false);
+	if (leftCurrency.value != 1 && rightCurrency.value != 1) {
+		document.getElementById('leftInput').disabled = false;
+		document.getElementById('rightInput').disabled = false;
+		fromLeft();
+	}
 };
 let rightCurrency = document.getElementById('rightCurrency');
 rightCurrency.onchange = () => {
-	leftCurrency.value != 1 &&
-		rightCurrency.value != 1 &&
-		(document.getElementById('leftInput').disabled = false) &&
-		(document.getElementById('rightInput').disabled = false);
+	if (leftCurrency.value != 1 && rightCurrency.value != 1) {
+		document.getElementById('leftInput').disabled = false;
+		document.getElementById('rightInput').disabled = false;
+		fromRight();
+	}
 };
 
 // Events associated with the Input converter
