@@ -1,4 +1,4 @@
-# doNow
+# [doNow](https://ezest6.github.io/shiny-fiesta/)
 
 doNow (dollar now) is a web application mainly for staying updated with both dollars in Argentina. Made it with a darker minimalistic design.
 
