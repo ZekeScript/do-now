@@ -1,6 +1,6 @@
-# doNow
+# [doNow](https://ezest6.github.io/shiny-fiesta/)
 
-doNow (dollar now) is a web aplication mainly for stay updated with both dollars in Argentina. Made it with a dark minimalistic design.
+doNow (dollar now) is a web application mainly for staying updated with both dollars in Argentina. Made it with a darker minimalistic design.
 
 ## Tech Stack
 
@@ -13,7 +13,7 @@ doNow (dollar now) is a web aplication mainly for stay updated with both dollars
 ## Features
 
 - Currency converter
-- Rate query of specific day
+- Rate query of a specific day
 - Historical evolution
 - Historical gap
 
@@ -61,15 +61,15 @@ doNow (dollar now) is a web aplication mainly for stay updated with both dollars
 
 - The first issue I faced was the converter. I did this project when I started to learn JavaScript and I want to work with keyUp events. So, it was very difficult. Maybe a currency-converter is not a very good idea for a first-time project but I learned a lot because of that (e.g. how JavaScript handles the flow of process).
 
-- Another big issue was the charts. I didn't know how to implement dynamic charts in JavaScript, and was very frustrating because I couldn't find how to do that until I found Chart.js. It's a powerful library for charts, and has a very good documentation, so took me 2 weeks to learn it.
+- Another big issue was the charts. I didn't know how to implement dynamic charts in JavaScript and was very frustrating because I couldn't find how to do that until I found Chart.js. It's a powerful library for charts and has very good documentation, so took me 2 weeks to learn it.
 
 ## API Reference
 
-It's develop with two APIs one, for the international value for all currencys, and another how bring information from a scraper, the value for the informal dollar.
+It's developed with two APIs one, for the international value for all currencies, and another how to bring information from a scraper, the value for the informal dollar.
 
 #### [ExchangeRate-API](https://www.exchangerate-api.com/)
 
-It's an API for given a supplied base currency it will return the whole list of other currencies we support and their corresponding exchange rates. It's paid but the free vertion support 1.5k request
+It's an API for given a supplied base currency it will return the whole list of other currencies we support and their corresponding exchange rates. It's paid but the free version support 1.5k request
 
 #### Get latest
 
