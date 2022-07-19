@@ -1,0 +1,25 @@
+{
+  "name": "shiny-fiesta",
+  "version": "1.0.0",
+  "description": "doNow (dollar now) is a web aplication mainly for stay updated with both dollars in Argentina. Made it with a dark minimalistic design.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezEst6/shiny-fiesta.git"
+  },
+  "keywords": [],
+  "author": "ezEst",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/ezEst6/shiny-fiesta/issues"
+  },
+  "homepage": "https://github.com/ezEst6/shiny-fiesta#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "chart.js": "^3.8.0",
+    "toastify": "^2.0.1"
+  }
+}
