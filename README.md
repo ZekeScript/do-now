@@ -75,7 +75,7 @@ The app uses the following APIs:
 - [Santiago Vega](https://www.linkedin.com/in/santiagoeliseovega/)
 - [matiu](https://github.com/matiu)
 
-This app was developed by [Your Name]. It uses the following libraries and technologies:
+This app was developed by ZekeScript. It uses the following libraries and technologies:
 
 - JavaScript
 - HTML
