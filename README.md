@@ -1,22 +1,38 @@
-<<<<<<< HEAD
-# [doNow](https://ezest6.github.io/shiny-fiesta/)
+# Currency Converter App
 
-doNow (dollar now) is a web application mainly for staying updated with both dollars in Argentina. Made it with a darker minimalistic design.
-
-## Tech Stack
-
-**Client:** Vanilla JavaScript, HTML+CSS, Bootstrap
-
-**Libraries:** Chart.js, Toastify
-
-**Server:** GitHub
+This is a currency converter app that allows you to convert between different currencies. It retrieves currency exchange rates from various APIs and provides a user interface to perform conversions.
 
 ## Features
 
-- Currency converter
-- Rate query of a specific day
-- Historical evolution
-- Historical gap
+- Convert between different currencies using real-time exchange rates.
+- Supports conversion between the following currencies: Argentine Peso (ARS), US Dollar (USD), Euro (EUR), and Brazilian Real (BRL).
+- Displays the latest exchange rates for the official and blue market (unofficial) dollar.
+- Provides a historical chart of exchange rate evolution for the official and blue market dollar.
+- Allows selection of different time intervals for the chart (max, 5 years, 1 year, 6 months, 1 month, 5 days).
+- Displays the difference between today's exchange rates and the selected historical date.
+- Provides the ability to query exchange rates for specific dates.
+- Shows the percentage change in exchange rates compared to the selected historical date.
+- Includes a rotating animation on the refresh button.
+- Allows clearing the input fields with a clean button.
+
+## Installation and Setup
+
+1. Clone the repository or download the source code.
+2. Open the index.html file in a web browser.
+
+## Usage
+
+1. Select the currencies you want to convert from and to using the dropdown menus.
+2. Enter the amount you want to convert in the input field.
+3. The converted amount will be displayed in the corresponding output field.
+4. You can switch the conversion direction by clicking the arrow button.
+5. To view the last conversion made, click the "Last Conversion" button.
+6. To view the historical exchange rate chart, click the buttons corresponding to different time intervals.
+7. You can query exchange rates for specific dates by selecting a date from the dropdown menu.
+8. The difference in exchange rates between today and the selected historical date will be displayed.
+9. The percentage change in exchange rates will be shown, indicating if it has increased or decreased.
+
+Note: The app retrieves real-time data from external APIs, so an internet connection is required.
 
 ## Screenshots
 
@@ -46,101 +62,12 @@ doNow (dollar now) is a web application mainly for staying updated with both dol
 
 ![doNow mobile version](https://user-images.githubusercontent.com/57415369/179321381-97e92192-bec4-4344-9f28-ac84329bafe9.gif)
 
-## Deployment
+## API References
 
-[Run it](https://ezest6.github.io/shiny-fiesta/)
+The app uses the following APIs:
 
-## Badges
-
-![Stars](https://img.shields.io/github/stars/ezEst6/shiny-fiesta?style=social)
-
-![Issues](https://img.shields.io/github/issues-raw/ezEst6/shiny-fiesta?style=social)
-
-![Repo size](https://img.shields.io/github/repo-size/ezEst6/shiny-fiesta)
-
-## Things I learned
-
-- The first issue I faced was the converter. I did this project when I started to learn JavaScript and I want to work with keyUp events. So, it was very difficult. Maybe a currency-converter is not a very good idea for a first-time project but I learned a lot because of that (e.g. how JavaScript handles the flow of process).
-
-- Another big issue was the charts. I didn't know how to implement dynamic charts in JavaScript and was very frustrating because I couldn't find how to do that until I found Chart.js. It's a powerful library for charts and has very good documentation, so took me 2 weeks to learn it.
-
-## API Reference
-
-It's developed with two APIs one, for the international value for all currencies, and another how to bring information from a scraper, the value for the informal dollar.
-
-#### [ExchangeRate-API](https://www.exchangerate-api.com/)
-
-It's an API for given a supplied base currency it will return the whole list of other currencies we support and their corresponding exchange rates. It's paid but the free version support 1.5k request
-
-#### Get latest
-
-```http
-  GET v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD
-```
-
-| Parameter      | Type     | Description                |
-| :------------- | :------- | :------------------------- |
-| `YOUR-API-KEY` | `string` | **Required**. Your API key |
-
-| Parameter | Type | Description |
-| :-- | :-- | :-- |
-| `CURRENCY` | `string` | **Required**. ISO 4217 Three Letter Currency Code for that currency |
-
-#### [Bluelytics](https://bluelytics.com.ar/)
-
-API to get the current [dolar blue](https://es.wikipedia.org/wiki/Mercado_negro_de_divisas) rate in Argentina, from various sources.
-
-#### Get latest value
-
-```http
-  GET api.bluelytics.com.ar/v2/latest
-```
-
-The response is a JSON object with the following attributes
-
-```http
-{
-  "oficial": {
-    "value_avg": 132.29,
-    "value_sell": 135.29,
-    "value_buy": 129.29
-  },
-  "blue": {
-    "value_avg": 289,
-    "value_sell": 294,
-    "value_buy": 284
-  },
-  "oficial_euro": {
-    "value_avg": 142.25,
-    "value_sell": 145.47,
-    "value_buy": 139.02
-  },
-  "blue_euro": {
-    "value_avg": 310.75,
-    "value_sell": 316.13,
-    "value_buy": 305.38
-  },
-  "last_update": "2022-07-15T16:25:27.431563-03:00"
-}
-```
-
-#### Get historical data
-
-```http
-  GET api.bluelytics.com.ar/v2/evolution.json?days=2
-```
-
-| Parameter | Type      | Description                                            |
-| :-------- | :-------- | :----------------------------------------------------- |
-| `days`    | `integer` | **Optional**. Get last N/2 days instead of all history |
-
-## Author
-
-- [@ezEst](https://github.com/ezEst6)
-
-## Feedback
-
-If you have any feedback, please reach out to me at estiga27@gmail.com
+- `https://v6.exchangerate-api.com`: Retrieves exchange rate data for different currencies.
+- `https://api.bluelytics.com.ar`: Fetches historical exchange rate data and the latest values for the official and blue market dollar.
 
 ## Credits
 
@@ -148,160 +75,14 @@ If you have any feedback, please reach out to me at estiga27@gmail.com
 - [Santiago Vega](https://www.linkedin.com/in/santiagoeliseovega/)
 - [matiu](https://github.com/matiu)
 
-## License
+This app was developed by [Your Name]. It uses the following libraries and technologies:
 
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-=======
-# doNow
-
-doNow (dollar now) is a web application mainly for staying updated with both dollars in Argentina. Made it with a darker minimalistic design.
-
-## Tech Stack
-
-**Client:** Vanilla JavaScript, HTML+CSS, Bootstrap
-
-**Libraries:** Chart.js, Toastify
-
-**Server:** GitHub
-
-## Features
-
-- Currency converter
-- Rate query of a specific day
-- Historical evolution
-- Historical gap
-
-## Screenshots
-
-#### Home
-
-![Home](https://user-images.githubusercontent.com/57415369/179135600-7a6df8ef-9dd2-427a-a1ef-3c86fe3ad7d2.png)
-
-#### Currency Converter
-
-![Currency converter](https://user-images.githubusercontent.com/57415369/179135710-b8e6e79d-1dc0-4d96-b2f1-212878691599.png)
-
-![Currency converter](https://user-images.githubusercontent.com/57415369/179135861-87e57764-74f8-426c-b977-c344586769c4.png)
-
-#### Query By Date
-
-![Query By Date](https://user-images.githubusercontent.com/57415369/179135976-94b9db8b-62e2-4935-9d40-71e90a5b91d3.png)
-
-![Query By Date](https://user-images.githubusercontent.com/57415369/179136105-d3e2d858-39e5-4ab1-a600-3df7924df838.png)
-
-#### Historical charts
-
-![Evo chart](https://user-images.githubusercontent.com/57415369/179136280-6ec13729-43ec-4674-81e4-b9b9ef0c948f.png)
-
-![Evo chart](https://user-images.githubusercontent.com/57415369/179136422-86340dc9-77ba-4513-94f6-61efccbddcba.png)
-
-## Demo
-
-![doNow mobile version](https://user-images.githubusercontent.com/57415369/179321381-97e92192-bec4-4344-9f28-ac84329bafe9.gif)
-
-## Deployment
-
-[Run it](https://ezest6.github.io/shiny-fiesta/)
-
-## Badges
-
-![Stars](https://img.shields.io/github/stars/ezEst6/shiny-fiesta?style=social)
-
-![Issues](https://img.shields.io/github/issues-raw/ezEst6/shiny-fiesta?style=social)
-
-![Repo size](https://img.shields.io/github/repo-size/ezEst6/shiny-fiesta)
-
-## Things I learned
-
-- The first issue I faced was the converter. I did this project when I started to learn JavaScript and I want to work with keyUp events. So, it was very difficult. Maybe a currency-converter is not a very good idea for a first-time project but I learned a lot because of that (e.g. how JavaScript handles the flow of process).
-
-- Another big issue was the charts. I didn't know how to implement dynamic charts in JavaScript and was very frustrating because I couldn't find how to do that until I found Chart.js. It's a powerful library for charts and has very good documentation, so took me 2 weeks to learn it.
-
-## API Reference
-
-It's developed with two APIs one, for the international value for all currencies, and another how to bring information from a scraper, the value for the informal dollar.
-
-#### [ExchangeRate-API](https://www.exchangerate-api.com/)
-
-It's an API for given a supplied base currency it will return the whole list of other currencies we support and their corresponding exchange rates. It's paid but the free version support 1.5k request
-
-#### Get latest
-
-```http
-  GET v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/USD
-```
-
-| Parameter      | Type     | Description                |
-| :------------- | :------- | :------------------------- |
-| `YOUR-API-KEY` | `string` | **Required**. Your API key |
-
-| Parameter | Type | Description |
-| :-- | :-- | :-- |
-| `CURRENCY` | `string` | **Required**. ISO 4217 Three Letter Currency Code for that currency |
-
-#### [Bluelytics](https://bluelytics.com.ar/)
-
-API to get the current [dolar blue](https://es.wikipedia.org/wiki/Mercado_negro_de_divisas) rate in Argentina, from various sources.
-
-#### Get latest value
-
-```http
-  GET api.bluelytics.com.ar/v2/latest
-```
-
-The response is a JSON object with the following attributes
-
-```http
-{
-  "oficial": {
-    "value_avg": 132.29,
-    "value_sell": 135.29,
-    "value_buy": 129.29
-  },
-  "blue": {
-    "value_avg": 289,
-    "value_sell": 294,
-    "value_buy": 284
-  },
-  "oficial_euro": {
-    "value_avg": 142.25,
-    "value_sell": 145.47,
-    "value_buy": 139.02
-  },
-  "blue_euro": {
-    "value_avg": 310.75,
-    "value_sell": 316.13,
-    "value_buy": 305.38
-  },
-  "last_update": "2022-07-15T16:25:27.431563-03:00"
-}
-```
-
-#### Get historical data
-
-```http
-  GET api.bluelytics.com.ar/v2/evolution.json?days=2
-```
-
-| Parameter | Type      | Description                                            |
-| :-------- | :-------- | :----------------------------------------------------- |
-| `days`    | `integer` | **Optional**. Get last N/2 days instead of all history |
-
-## Author
-
-- [@ezEst](https://github.com/ezEst6)
-
-## Feedback
-
-If you have any feedback, please reach out to me at estiga27@gmail.com
-
-## Credits
-
-- [Javier Verón](https://www.linkedin.com/in/walterjavierveron/)
-- [Santiago Vega](https://www.linkedin.com/in/santiagoeliseovega/)
-- [matiu](https://github.com/matiu)
+- JavaScript
+- HTML
+- CSS
+- Chart.js (https://www.chartjs.org/)
+- Toastify (https://apvarun.github.io/toastify-js/)
 
 ## License
 
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
->>>>>>> 42827149fbb23f2bec9ee995d5d3da2f8a850776
+This project is licensed under the [MIT License](LICENSE).
