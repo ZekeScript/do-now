@@ -68,11 +68,12 @@ function getChart() {
 // by function parameter
 function getChartInterval(days) {
 	async function fetchdata() {
+		// The API stopped working with the 'days' variable for now, so I decided to change the logic by slicing the entire array with the requested number of days.
 		const url = `https://api.bluelytics.com.ar/v2/evolution.json?days=${days}`;
 		const res = await fetch(url);
 		// wait until the request has been completed
 		const datapoints = await res.json();
-		return datapoints;
+		return datapoints.slice(0, days);
 	}
 
 	// Render the values if the labels (dates) on the graph
